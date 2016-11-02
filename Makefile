@@ -37,7 +37,7 @@ Person.o: Person.cpp
 Professor.o: Professor.cpp
 	c++ -c Professor.cpp
 
-RA.p: RA.cpp
+RA.o: RA.cpp
 	c++ -c RA.cpp
 
 TA.o: TA.cpp
