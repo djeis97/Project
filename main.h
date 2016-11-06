@@ -5,11 +5,8 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Course_h
-#define Course_h
-
-#include "GradCourse.h"
-#include "UnderGradCourse.h"
+#ifndef main_h
+#define main_h
 
 
 /*******************************************************************************
@@ -19,29 +16,10 @@
 *                                                                              *
 *******************************************************************************/
 
-class Course
-    {
+class main
+             {};
 
-public:
-
-
-
-
-
-
-
-    /**
-     * @element-type GradCourse
-     */
-    GradCourse  myGradCourse;
-
-    /**
-     * @element-type UnderGradCourse
-     */
-    UnderGradCourse  myUnderGradCourse;
-    };
-
-#endif// Course_h
+#endif// main_h
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

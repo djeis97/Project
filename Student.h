@@ -5,12 +5,12 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Course_h
-#define Course_h
+#ifndef Student_h
+#define Student_h
 
-#include "GradCourse.h"
-#include "UnderGradCourse.h"
-
+#include "Graduate.h"
+#include "Lecturer.h"
+#include "UnderGraduate.h"
 
 /*******************************************************************************
 *                                                                              *
@@ -19,29 +19,43 @@
 *                                                                              *
 *******************************************************************************/
 
-class Course
+class Department;
+
+/*******************************************************************************
+*                                                                              *
+*  Created by Randy McMillan                                                   *
+*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
+*                                                                              *
+*******************************************************************************/
+
+class Student
     {
 
 public:
 
 
-
-
-
-
+    /**
+     * @element-type Graduate
+     */
+    Graduate  myGraduate;
 
     /**
-     * @element-type GradCourse
+     * @element-type UnderGraduate
      */
-    GradCourse  myGradCourse;
+    UnderGraduate  myUnderGraduate;
 
     /**
-     * @element-type UnderGradCourse
+     * @element-type Lecturer
      */
-    UnderGradCourse  myUnderGradCourse;
+    Lecturer  myLecturer;
+
+    /**
+     * @element-type Department
+     */
+    Department  *myDepartment;
     };
 
-#endif// Course_h
+#endif// Student_h
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/
