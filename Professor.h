@@ -5,8 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Professor_h
-#define Professor_h
+#ifndef PROFESSOR_H
+#define PROFESSOR_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Professor.h
 
 #include "Course.h"
 
@@ -20,17 +22,27 @@
 
 class Professor
     {
+    /* {src_lang=cpp}*/
 
+
+    // Attributes
+public:
+    Integer  newAttr;
+
+    // Associations
 public:
 
 
     /**
      * @element-type Course
      */
-    Course  myCourse;
+    Course  &myCourse;
+
+
+    // end of class Professor
     };
 
-#endif// Professor_h
+#endif// PROFESSOR_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

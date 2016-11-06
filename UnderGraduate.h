@@ -5,8 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef UnderGraduate_h
-#define UnderGraduate_h
+#ifndef UNDERGRADUATE_H
+#define UNDERGRADUATE_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//UnderGraduate.h
 
 #include "Course.h"
 
@@ -20,17 +22,23 @@
 
 class UnderGraduate
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
 
 
     /**
      * @element-type Course
      */
-    Course  myCourse;
+    Course  &myCourse;
+
+
+    // end of class UnderGraduate
     };
 
-#endif// UnderGraduate_h
+#endif// UNDERGRADUATE_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

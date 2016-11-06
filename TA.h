@@ -5,10 +5,11 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef TA_h
-#define TA_h
+#ifndef TA_H
+#define TA_H
 
-#include "Course.h"
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//TA.h
+
 #include "GradCourse.h"
 
 /*******************************************************************************
@@ -29,7 +30,10 @@ class Graduate;
 
 class TA
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
 
     /**
@@ -38,19 +42,21 @@ public:
     Graduate  *myGraduate;
 
     /**
-     * @element-type Course
+     * @element-type GradCourse
      */
-    Course  myCourse;
-
-
+    GradCourse  myGradCourse;
 
     /**
      * @element-type GradCourse
      */
     GradCourse  myGradCourse;
+
+
+
+    // end of class TA
     };
 
-#endif// TA_h
+#endif// TA_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

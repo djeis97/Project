@@ -5,10 +5,11 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Person_h
-#define Person_h
+#ifndef PERSON_H
+#define PERSON_H
 
-#include "Student.h"
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Person.h
+
 #include "Teacher.h"
 
 
@@ -21,27 +22,31 @@
 
 class Person
     {
+    /* {src_lang=cpp}*/
 
+
+    // Attributes
 public:
     Integer  UniversityID;
-    String  FirstName;
-    String  MiddleName;
-    String  LastName;
+    String  firstName;
+    String  middleName;
+    String  lastName;
+    String  gender;
 
+    // Associations
 public:
 
-    /**
-     * @element-type Student
-     */
-    Student  myStudent;
 
     /**
      * @element-type Teacher
      */
-    Teacher  myTeacher;
+    Teacher  &myTeacher;
+
+
+    // end of class Person
     };
 
-#endif// Person_h
+#endif// PERSON_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

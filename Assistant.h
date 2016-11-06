@@ -5,8 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Assistant_h
-#define Assistant_h
+#ifndef ASSISTANT_H
+#define ASSISTANT_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Assistant.h
 
 #include "RA.h"
 #include "TA.h"
@@ -21,22 +23,28 @@
 
 class Assistant
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
 
+
+    /**
+     * @element-type TA
+     */
+    TA  myTA;
 
     /**
      * @element-type RA
      */
     RA  myRA;
 
-    /**
-     * @element-type TA
-     */
-    TA  myTA;
+
+    // end of class Assistant
     };
 
-#endif// Assistant_h
+#endif// ASSISTANT_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

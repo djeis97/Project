@@ -5,21 +5,15 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Teacher_h
-#define Teacher_h
+#ifndef TEACHER_H
+#define TEACHER_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Teacher.h
 
 #include "Adjunct.h"
 #include "Lecturer.h"
 #include "Professor.h"
 
-/*******************************************************************************
-*                                                                              *
-*  Created by Randy McMillan                                                   *
-*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
-*                                                                              *
-*******************************************************************************/
-
-class Department;
 
 /*******************************************************************************
 *                                                                              *
@@ -30,7 +24,10 @@ class Department;
 
 class Teacher
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
 
 
@@ -49,13 +46,12 @@ public:
      */
     Professor  myProfessor;
 
-    /**
-     * @element-type Department
-     */
-    Department  *myDepartment;
+
+
+    // end of class Teacher
     };
 
-#endif// Teacher_h
+#endif// TEACHER_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

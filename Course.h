@@ -5,43 +5,24 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Course_h
-#define Course_h
+#ifndef COURSE_H
+#define COURSE_H
 
-#include "GradCourse.h"
-#include "UnderGradCourse.h"
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Course.h
 
-
-/*******************************************************************************
-*                                                                              *
-*  Created by Randy McMillan                                                   *
-*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
-*                                                                              *
-*******************************************************************************/
 
 class Course
     {
-
-public:
-
+    /* {src_lang=cpp}*/
 
 
+    // Associations
 
 
-
-
-    /**
-     * @element-type GradCourse
-     */
-    GradCourse  myGradCourse;
-
-    /**
-     * @element-type UnderGradCourse
-     */
-    UnderGradCourse  myUnderGradCourse;
+    // end of class Course
     };
 
-#endif// Course_h
+#endif// COURSE_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

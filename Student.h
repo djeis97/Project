@@ -5,8 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Student_h
-#define Student_h
+#ifndef STUDENT_H
+#define STUDENT_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Student.h
 
 #include "Graduate.h"
 #include "Lecturer.h"
@@ -30,7 +32,10 @@ class Department;
 
 class Student
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
 
 
@@ -53,9 +58,12 @@ public:
      * @element-type Department
      */
     Department  *myDepartment;
+
+
+    // end of class Student
     };
 
-#endif// Student_h
+#endif// STUDENT_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

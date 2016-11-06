@@ -5,21 +5,24 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Department_h
-#define Department_h
+#ifndef DEPARTMENT_H
+#define DEPARTMENT_H
 
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Department.h
 
-/*******************************************************************************
-*                                                                              *
-*  Created by Randy McMillan                                                   *
-*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
-*                                                                              *
-*******************************************************************************/
 
 class Department
-                     {};
+    {
+    /* {src_lang=cpp}*/
 
-#endif// Department_h
+
+    // Associations
+
+
+    // end of class Department
+    };
+
+#endif// DEPARTMENT_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

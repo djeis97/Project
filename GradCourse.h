@@ -5,15 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef GradCourse_h
-#define GradCourse_h
+#ifndef GRADCOURSE_H
+#define GRADCOURSE_H
 
-/*******************************************************************************
-*                                                                              *
-*  Created by Randy McMillan                                                   *
-*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
-*                                                                              *
-*******************************************************************************/
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//GradCourse.h
 
 class TA;
 
@@ -26,18 +21,23 @@ class TA;
 
 class GradCourse
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
-
 
     /**
      * @element-type TA
      */
     TA  *myTA;
 
+
+
+    // end of class GradCourse
     };
 
-#endif// GradCourse_h
+#endif// GRADCOURSE_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

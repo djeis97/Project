@@ -5,8 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Lecturer_h
-#define Lecturer_h
+#ifndef LECTURER_H
+#define LECTURER_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Lecturer.h
 
 #include "Course.h"
 
@@ -28,7 +30,14 @@ class Student;
 
 class Lecturer
     {
+    /* {src_lang=cpp}*/
 
+
+    // Attributes
+public:
+    Integer  newAttr;
+
+    // Associations
 public:
 
     /**
@@ -40,10 +49,13 @@ public:
     /**
      * @element-type Course
      */
-    Course  myCourse;
+    Course  &myCourse;
+
+
+    // end of class Lecturer
     };
 
-#endif// Lecturer_h
+#endif// LECTURER_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

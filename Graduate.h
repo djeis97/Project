@@ -5,8 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Graduate_h
-#define Graduate_h
+#ifndef GRADUATE_H
+#define GRADUATE_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Graduate.h
 
 #include "Assistant.h"
 #include "Course.h"
@@ -23,7 +25,10 @@
 
 class Graduate
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
 
 
@@ -40,15 +45,18 @@ public:
     /**
      * @element-type Course
      */
-    Course  myCourse;
+    Course  &myCourse;
 
     /**
      * @element-type Assistant
      */
-    Assistant  myAssistant;
+    Assistant  &myAssistant;
+
+
+    // end of class Graduate
     };
 
-#endif// Graduate_h
+#endif// GRADUATE_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

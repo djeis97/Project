@@ -5,8 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Adjunct_h
-#define Adjunct_h
+#ifndef ADJUNCT_H
+#define ADJUNCT_H
+
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//Adjunct.h
 
 #include "Course.h"
 
@@ -20,17 +22,32 @@
 
 class Adjunct
     {
+    /* {src_lang=cpp}*/
 
+
+    // Operations
+public:
+
+    virtual void newOperation ();
+
+    // Attributes
+public:
+    Integer  newAttr;
+
+    // Associations
 public:
 
 
     /**
      * @element-type Course
      */
-    Course  myCourse;
+    Course  &myCourse;
+
+
+    // end of class Adjunct
     };
 
-#endif// Adjunct_h
+#endif// ADJUNCT_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/

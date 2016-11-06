@@ -5,15 +5,10 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef RA_h
-#define RA_h
+#ifndef RA_H
+#define RA_H
 
-/*******************************************************************************
-*                                                                              *
-*  Created by Randy McMillan                                                   *
-*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
-*                                                                              *
-*******************************************************************************/
+// FILE: /Users/randymcmillan/COP3331/Assignments/Project//RA.h
 
 class Graduate;
 
@@ -26,7 +21,10 @@ class Graduate;
 
 class RA
     {
+    /* {src_lang=cpp}*/
 
+
+    // Associations
 public:
 
     /**
@@ -34,9 +32,12 @@ public:
      */
     Graduate  *myGraduate;
 
+
+
+    // end of class RA
     };
 
-#endif// RA_h
+#endif// RA_H
 /*******************************************************************************
 *                                                                              *
 *******************************************************************************/
