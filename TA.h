@@ -10,6 +10,7 @@
 
 // FILE: /Users/randymcmillan/COP3331/Assignments/Project//TA.h
 
+#include "Assistant.h"
 #include "GradCourse.h"
 
 /*******************************************************************************
@@ -51,6 +52,11 @@ public:
      */
     GradCourse  myGradCourse;
 
+
+    /**
+     * @element-type Assistant
+     */
+    Assistant  &myAssistant;
 
 
     // end of class TA

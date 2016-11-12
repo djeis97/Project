@@ -10,6 +10,15 @@
 
 // FILE: /Users/randymcmillan/COP3331/Assignments/Project//GradCourse.h
 
+#include "Course.h"
+
+/*******************************************************************************
+*                                                                              *
+*  Created by Randy McMillan                                                   *
+*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
+*                                                                              *
+*******************************************************************************/
+
 class TA;
 
 /*******************************************************************************
@@ -32,6 +41,12 @@ public:
      */
     TA  *myTA;
 
+
+
+    /**
+     * @element-type Course
+     */
+    Course  &myCourse;
 
 
     // end of class GradCourse

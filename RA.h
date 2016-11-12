@@ -10,6 +10,15 @@
 
 // FILE: /Users/randymcmillan/COP3331/Assignments/Project//RA.h
 
+#include "Assistant.h"
+
+/*******************************************************************************
+*                                                                              *
+*  Created by Randy McMillan                                                   *
+*  Copyright © 2016 RandyMcMillan.net. All rights reserved.                    *
+*                                                                              *
+*******************************************************************************/
+
 class Graduate;
 
 /*******************************************************************************
@@ -32,6 +41,11 @@ public:
      */
     Graduate  *myGraduate;
 
+
+    /**
+     * @element-type Assistant
+     */
+    Assistant  &myAssistant;
 
 
     // end of class RA
