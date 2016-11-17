@@ -1,9 +1,12 @@
 #include <string.h>
 
 #include "Person.hpp"
+#include "DataObject.hpp"
 
-Person::Person (std::string myName, int id, Date bDate, std::string myGender)
-  : name(myName), universityID(id), birthDate(bDate), gender(myGender) {
+Person::Person (std::string myName, int id, Date bDate,
+                std::string myGender, DataObject *myDataObject)
+  : name(myName), universityID(id), birthDate(bDate),
+    gender(myGender), dataObject(myDataObject) {
 }
 
 std::string Person::getName () {

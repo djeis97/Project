@@ -2,13 +2,18 @@
 #define PERSON_H
 
 #include <string>
+
 #include "Date.hpp"
+#include "DataObject.hpp"
+
+class DataObject;
 
 class Person
 {
 public:
   //! Default constructor
-  Person(std::string myName, int id, Date bDate, std::string myGender);
+  Person(std::string myName, int id, Date bDate,
+         std::string myGender, DataObject *myDataObject);
 
   //! Destructor
   virtual ~Person() noexcept;
@@ -32,6 +37,7 @@ private:
   int universityID;
   Date birthDate;
   std::string gender;
+  DataObject *dataObject;
 
 };
 

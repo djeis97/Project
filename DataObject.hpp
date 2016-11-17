@@ -5,6 +5,10 @@
 #include "Department.hpp"
 #include "Course.hpp"
 
+class Person;
+class Department;
+class Course;
+
 #include <vector>
 
 class DataObject
