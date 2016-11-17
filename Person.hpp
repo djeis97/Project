@@ -8,7 +8,7 @@ class Person
 {
 public:
   //! Default constructor
-  Person(std::string, int id, Date bDate, std::string gender);
+  Person(std::string myName, int id, Date bDate, std::string myGender);
 
   //! Destructor
   virtual ~Person() noexcept;
@@ -25,7 +25,7 @@ public:
   std::string getGender ();
   void setGender (std::string newGender);
 
-  std::ostream& operator<< (std::ostream&);
+  virtual std::ostream& operator<< (std::ostream&);
 
 private:
   std::string name;
