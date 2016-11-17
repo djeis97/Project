@@ -4,9 +4,10 @@
 #include "DataObject.hpp"
 
 Person::Person (std::string myName, int id, Date bDate,
-                std::string myGender, DataObject *myDataObject)
+                std::string myGender, int myDepartmentId, DataObject *myDataObject)
   : name(myName), universityID(id), birthDate(bDate),
-    gender(myGender), dataObject(myDataObject) {
+    gender(myGender), departmentId(myDepartmentId),
+    dataObject(myDataObject) {
 }
 
 std::string Person::getName () {

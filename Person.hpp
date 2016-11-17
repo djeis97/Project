@@ -13,7 +13,7 @@ class Person
 public:
   //! Default constructor
   Person(std::string myName, int id, Date bDate,
-         std::string myGender, DataObject *myDataObject);
+         std::string myGender, int departmentId, DataObject *myDataObject);
 
   //! Destructor
   virtual ~Person() noexcept;
@@ -37,6 +37,7 @@ private:
   int universityID;
   Date birthDate;
   std::string gender;
+  int departmentId;
   DataObject *dataObject;
 
 };
