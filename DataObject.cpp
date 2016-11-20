@@ -6,21 +6,21 @@
 #include <vector>
 
 Person* DataObject::getPersonById (int id) {
-  return people.at(id);
+  return (id==0) ? nullptr : people.at(id-1);
 }
 Department* DataObject::getDepartmentById (int id) {
-  return departments.at(id);
+  return (id==0) ? nullptr : departments.at(id-1);
 }
 Course* DataObject::getCourseById (int id) {
-  return courses.at(id);
+  return (id==0) ? nullptr : courses.at(id-1);
 }
 
 void DataObject::addPerson (Person* newPerson) {
-  people.at(newPerson->getID()) = newPerson;
+  people.at(newPerson->getID()-1) = newPerson;
 }
 void DataObject::addDepartment (Department* newDepartment) {
-  departments.at(newDepartment->getDepartmentId()) = newDepartment;
+  departments.at(newDepartment->getDepartmentId()-1) = newDepartment;
 }
 void DataObject::addCourse (Course* newCourse) {
-  courses.at(newCourse->getCourseId()) = newCourse;
+  courses.at(newCourse->getCourseId()-1) = newCourse;
 }
