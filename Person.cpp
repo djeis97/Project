@@ -1,4 +1,5 @@
 #include <string.h>
+#include <iostream>
 
 #include "Person.hpp"
 #include "DataObject.hpp"
@@ -8,6 +9,16 @@ Person::Person (std::string myName, int id, Date bDate,
   : name(myName), universityID(id), birthDate(bDate),
     gender(myGender), departmentId(myDepartmentId),
     dataObject(myDataObject) {
+  dataObject->addPerson(this);
+}
+
+Person::Person (DataObject *myDataObject)
+  : universityID(0),  dataObject(myDataObject) {
+  dataObject->addPerson(this);
+}
+
+Person::~Person () {
+  dataObject->removePerson(this);
 }
 
 std::string Person::getName () {
@@ -37,4 +48,18 @@ std::string Person::getGender () {
 }
 void Person::setGender (std::string newGender) {
   gender = newGender;
+}
+
+std::istream& operator>> (std::istream& in, Person& me) {
+  me.dataObject->removePerson(&me);
+  in >> me.universityID;
+  std::getline(in, me.name);
+  in >> me.birthDate;
+  in.ignore();
+  std::getline(in, me.gender);
+  in >> me.departmentId;
+  me.dataObject->addPerson(&me);
+
+
+  return in;
 }

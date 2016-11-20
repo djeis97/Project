@@ -11,9 +11,9 @@ class DataObject;
 class Person
 {
 public:
-  //! Default constructor
   Person(std::string myName, int id, Date bDate,
          std::string myGender, int departmentId, DataObject *myDataObject);
+  Person(DataObject *myDataObject);
 
   //! Destructor
   virtual ~Person() noexcept;
@@ -39,6 +39,7 @@ private:
   int departmentId;
   DataObject *dataObject;
   friend std::ostream& operator<< (std::ostream&, Person& me);
+  friend std::istream& operator>> (std::istream&, Person& me);
 
 };
 
