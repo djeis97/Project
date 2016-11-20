@@ -21,3 +21,7 @@ int Date::getYear () {
 std::ostream& operator<< (std::ostream& out, Date& me) {
   return out << me.day << "/" << me.month << "/" << me.year;
 }
+
+std::istream& operator>> (std::istream& in, Date& me) {
+  return in >> me.day >> me.month >> me.year;
+}

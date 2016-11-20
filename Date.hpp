@@ -14,6 +14,7 @@ private:
   int month;
   int year;
   friend std::ostream& operator<< (std::ostream& out, Date& me);
+  friend std::istream& operator>> (std::istream& out, Date& me);
 };
 
 
