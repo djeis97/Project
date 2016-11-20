@@ -4,6 +4,7 @@
 #include "Person.hpp"
 
 #include <string.h>
+#include <iostream>
 
 class Student : Person
 {
@@ -19,6 +20,7 @@ public:
 private:
   int courseId;
   std::string level;
+  friend std::ostream& operator<< (std::ostream& out, Student& me);
 };
 
 

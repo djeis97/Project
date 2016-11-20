@@ -16,6 +16,6 @@ void Teacher::setTitle (std::string newTitle) {
   title = newTitle;
 }
 
-std::ostream& Teacher::operator<< (std::ostream& out) {
+std::ostream& operator<< (std::ostream& out, Teacher& me) {
   return out;
 }

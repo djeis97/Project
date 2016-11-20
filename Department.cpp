@@ -6,8 +6,8 @@
 Department::Department (int myId, std::string myName)
   : departmentId(myId), name(myName) {}
 
-std::ostream& Department::operator<< (std::ostream& out) {
-  return out << "Department: " << name;
+std::ostream& operator<< (std::ostream& out, Department& me) {
+  return out << "Department: " << me.name;
 }
 
 std::string Department::getName () {

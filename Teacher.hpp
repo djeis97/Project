@@ -19,11 +19,11 @@ public:
   std::string getTitle ();
   void setTitle (std::string newTitle);
 
-  virtual std::ostream& operator<< (std::ostream& out);
 
 private:
   std::string title;
   int courseTeaching;
+  friend std::ostream& operator<< (std::ostream& out, Teacher& me);
 };
 
 

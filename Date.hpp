@@ -9,11 +9,11 @@ public:
   int getDay ();
   int getMonth ();
   int getYear ();
-  std::ostream& operator<< (std::ostream& out);
 private:
   int day;
   int month;
   int year;
+  friend std::ostream& operator<< (std::ostream& out, Date& me);
 };
 
 

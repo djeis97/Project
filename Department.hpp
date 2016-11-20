@@ -17,11 +17,11 @@ public:
   std::string getName ();
   int getDepartmentId ();
 
-  std::ostream& operator<< (std::ostream& out);
 private:
   int departmentId;
   std::string name;
   DataObject* dataObject;
+  friend std::ostream& operator<< (std::ostream& out, Department& me);
 };
 
 

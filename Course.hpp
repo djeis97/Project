@@ -5,6 +5,7 @@
 
 #include <map>
 #include <string.h>
+#include <iostream>
 
 class DataObject;
 
@@ -23,6 +24,7 @@ private:
   DataObject *dataObject;
 
   int getStudentGrade (int studentId);
+  friend std::ostream& operator<< (std::ostream& out, Course& me);
 };
 
 
