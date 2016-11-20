@@ -1,5 +1,8 @@
 #include "Date.hpp"
 
+Date::Date ()
+  : day(0), month(0), year(0) {}
+
 Date::Date (int day, int month, int year) {
   this->day = day;
   this->month = month;
