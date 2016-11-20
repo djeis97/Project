@@ -53,9 +53,10 @@ void Person::setGender (std::string newGender) {
 std::istream& operator>> (std::istream& in, Person& me) {
   me.dataObject->removePerson(&me);
   in >> me.universityID;
+  in.ignore(500, '\n');
   std::getline(in, me.name);
   in >> me.birthDate;
-  in.ignore();
+  in.ignore(500, '\n');
   std::getline(in, me.gender);
   in >> me.departmentId;
   me.dataObject->addPerson(&me);

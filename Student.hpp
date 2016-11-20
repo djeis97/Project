@@ -4,6 +4,7 @@
 #include "Person.hpp"
 
 #include <string.h>
+#include <vector>
 #include <iostream>
 
 class Student : public Person
@@ -11,7 +12,8 @@ class Student : public Person
 public:
   Student (std::string myName, int id, Date bDate,
            std::string myGender, int departmentId, DataObject *myDataObject,
-           int myCourse, std::string myLevel);
+           std::vector<int> myCourses, std::string myLevel, std::string myRole,
+           std::vector<int> myCoursesAssisting);
   Student (DataObject *myDataObject);
   virtual ~Student();
 
@@ -19,8 +21,10 @@ public:
   void setLevel (std::string newLevel);
 
 private:
-  int courseId;
+  std::vector<int> courses;
   std::string level;
+  std::string role;
+  std::vector<int> coursesAssisting;
   friend std::ostream& operator<< (std::ostream& out, Student& me);
   friend std::istream& operator>> (std::istream& out, Student& me);
 };
