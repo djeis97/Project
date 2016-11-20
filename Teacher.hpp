@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string.h>
 
-class Teacher : Person
+class Teacher : public Person
 {
 public:
   Teacher (std::string myName, int id, Date bDate,

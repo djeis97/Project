@@ -3,7 +3,7 @@
 
 #include "Student.hpp"
 
-class TA : Student
+class TA : public Student
 {
 public:
   TA (std::string myName, int id, Date bDate,

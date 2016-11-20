@@ -6,7 +6,7 @@
 #include <string.h>
 #include <iostream>
 
-class Student : Person
+class Student : public Person
 {
 public:
   Student (std::string myName, int id, Date bDate,
