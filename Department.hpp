@@ -11,7 +11,8 @@ class DataObject;
 class Department
 {
 public:
-  Department (int myId, std::string myName);
+  Department (int myId, std::string myName, DataObject* myDataObject);
+  Department (DataObject* myDataObject);
   virtual ~Department ();
 
   std::string getName ();
@@ -22,6 +23,7 @@ private:
   std::string name;
   DataObject* dataObject;
   friend std::ostream& operator<< (std::ostream& out, Department& me);
+  friend std::istream& operator>> (std::istream& out, Department& me);
 };
 
 
