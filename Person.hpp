@@ -30,7 +30,6 @@ public:
   std::string getGender ();
   void setGender (std::string newGender);
 
-  virtual std::ostream& operator<< (std::ostream&);
 
 private:
   std::string name;
@@ -39,6 +38,7 @@ private:
   std::string gender;
   int departmentId;
   DataObject *dataObject;
+  friend std::ostream& operator<< (std::ostream&, Person& me);
 
 };
 
