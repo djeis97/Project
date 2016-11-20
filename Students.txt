@@ -1,6 +1,6 @@
 1
 Anthony Jones
-08 06 2002
+06 08 2002
 Male
 1
 BSc
@@ -10,7 +10,7 @@ None
 
 2
 Sally Smith
-02 17 2001
+17 02 2001
 Female
 1
 PhD
@@ -20,7 +20,7 @@ TA
 
 3
 John Mason
-05 21 1996
+21 05 1996
 Male
 BS
 4 1 3 4 5
