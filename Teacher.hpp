@@ -6,6 +6,7 @@
 #include "DataObject.hpp"
 
 #include <iostream>
+#include <vector>
 #include <string.h>
 
 class Teacher : public Person
@@ -13,7 +14,8 @@ class Teacher : public Person
 public:
   Teacher (std::string myName, int id, Date bDate,
            std::string myGender, int departmentId, DataObject *dataObject,
-           std::string myTitle, int courseTeaching);
+           std::string myTitle, std::vector<int> myCoursesTeaching);
+  Teacher (DataObject *dataObject);
   virtual ~Teacher ();
 
   std::string getTitle ();
@@ -22,7 +24,7 @@ public:
 
 private:
   std::string title;
-  int courseTeaching;
+  std::vector<int> coursesTeaching;
   friend std::ostream& operator<< (std::ostream& out, Teacher& me);
 };
 
