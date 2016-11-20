@@ -24,6 +24,9 @@ public:
   void addPerson (Person* newPerson);
   void addDepartment (Department* newDepartment);
   void addCourse (Course* newCourse);
+  void removePerson (Person* newPerson);
+  void removeDepartment (Department* newDepartment);
+  void removeCourse (Course* newCourse);
 
 private:
   std::map<int, Person *> people;

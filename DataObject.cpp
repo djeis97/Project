@@ -24,3 +24,14 @@ void DataObject::addDepartment (Department* newDepartment) {
 void DataObject::addCourse (Course* newCourse) {
   courses.at(newCourse->getCourseId()) = newCourse;
 }
+
+void DataObject::removePerson (Person* newPerson) {
+  people.erase(newPerson->getID());
+}
+void DataObject::removeDepartment (Department* newDepartment) {
+
+  departments.erase(newDepartment->getDepartmentId());
+}
+void DataObject::removeCourse (Course* newCourse) {
+  courses.erase(newCourse->getCourseId());
+}
