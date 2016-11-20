@@ -23,3 +23,17 @@ void Teacher::setTitle (std::string newTitle) {
 std::ostream& operator<< (std::ostream& out, Teacher& me) {
   return out;
 }
+
+std::istream& operator>> (std::istream& in, Teacher& me) {
+  in >> static_cast<Person&>(me);
+  in.ignore(500, '\n');
+  std::getline(in, me.title);
+  int courseNum;
+  in >> courseNum;
+  me.coursesTeaching.resize(courseNum);
+  for (int i=0; i < courseNum; i++)
+    in >> me.coursesTeaching.at(i);
+
+  return in;
+}
+

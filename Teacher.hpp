@@ -26,6 +26,7 @@ private:
   std::string title;
   std::vector<int> coursesTeaching;
   friend std::ostream& operator<< (std::ostream& out, Teacher& me);
+  friend std::istream& operator>> (std::istream& out, Teacher& me);
 };
 
 
