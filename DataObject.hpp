@@ -9,7 +9,7 @@ class Person;
 class Department;
 class Course;
 
-#include <vector>
+#include <map>
 
 class DataObject
 {
@@ -26,9 +26,9 @@ public:
   void addCourse (Course* newCourse);
 
 private:
-  std::vector<Person *> people;
-  std::vector<Department *> departments;
-  std::vector<Course *> courses;
+  std::map<int, Person *> people;
+  std::map<int, Department *> departments;
+  std::map<int, Course *> courses;
 };
 
 
