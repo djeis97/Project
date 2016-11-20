@@ -1,0 +1,7 @@
+100
+Jamie McClemens
+05 11 1970
+Male
+1
+Professor
+6 1 2 3 4 5 6
