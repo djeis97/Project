@@ -28,10 +28,8 @@ std::ostream& operator<< (std::ostream& out, Department& me) {
 }
 
 std::istream& operator>> (std::istream& in, Department& me) {
-  me.dataObject->removeDepartment(&me);
   in >> me.departmentId;
   in.ignore(500, '\n');
   std::getline(in, me.name);
-  me.dataObject->addDepartment(&me);
   return in;
 }

@@ -56,7 +56,6 @@ std::ostream& operator<< (std::ostream& out, Person& me) {
 }
 
 std::istream& operator>> (std::istream& in, Person& me) {
-  me.dataObject->removePerson(&me);
   in >> me.universityID;
   in.ignore(500, '\n');
   std::getline(in, me.name);
@@ -64,7 +63,6 @@ std::istream& operator>> (std::istream& in, Person& me) {
   in.ignore(500, '\n');
   std::getline(in, me.gender);
   in >> me.departmentId;
-  me.dataObject->addPerson(&me);
 
 
   return in;
