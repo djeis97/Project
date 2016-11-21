@@ -12,17 +12,44 @@
 int main()
 {
   DataObject dataObject;
-  std::ifstream students("Students.txt");
-  while (!(students.eof())) {
-    Student *s = new Student (&dataObject);
-    students >> *s;
-    students.ignore(500, '\n');
+  {
+    std::ifstream departments("Departments.txt");
+    while (!(departments.eof())) {
+      Department *d = new Department (&dataObject);
+      departments >> *d;
+      dataObject.addDepartment(d);
+      departments.ignore(500, '\n');
+    }
   }
-  std::ifstream teachers("Teachers.txt");
-  while (!(teachers.eof())) {
-    Teacher *s = new Teacher (&dataObject);
-    teachers >> *s;
-    teachers.ignore(500, '\n');
+  {
+    std::ifstream students("Students.txt");
+    while (!(students.eof())) {
+      Student *s = new Student (&dataObject);
+      students >> *s;
+      dataObject.addPerson(s);
+      students.ignore(500, '\n');
+      students.ignore(500, '\n');
+    }
+  }
+  {
+    std::ifstream courses("Courses.txt");
+    while (!(courses.eof())) {
+      Course *c = new Course (&dataObject);
+      courses >> *c;
+      dataObject.addCourse(c);
+      courses.ignore(500, '\n');
+      courses.ignore(500, '\n');
+    }
+  }
+  {
+    std::ifstream teachers("Teachers.txt");
+    while (!(teachers.eof())) {
+      Teacher *t = new Teacher (&dataObject);
+      teachers >> *t;
+      dataObject.addPerson(t);
+      teachers.ignore(500, '\n');
+      teachers.ignore(500, '\n');
+    }
   }
   std::cout << *dynamic_cast<Teacher*>(dataObject.getPersonById(100)) << std::endl;
 
