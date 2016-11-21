@@ -33,7 +33,10 @@ std::istream& operator>> (std::istream& in, Course &me) {
   std::getline(in, me.level);
   int studentNum;
   in >> studentNum;
-  for (int i=0; i < studentNum; i++)
-    in >> me.grades[i];
+  for (int i=0; i < studentNum; i++) {
+    int studentId, studentGrade;
+    in >> studentId >> studentGrade;
+    me.grades[studentId] = studentGrade;
+  }
   return in;
 }
