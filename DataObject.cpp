@@ -16,13 +16,13 @@ Course* DataObject::getCourseById (int id) {
 }
 
 void DataObject::addPerson (Person* newPerson) {
-  people.at(newPerson->getID()) = newPerson;
+  people[newPerson->getID()] = newPerson;
 }
 void DataObject::addDepartment (Department* newDepartment) {
-  departments.at(newDepartment->getDepartmentId()) = newDepartment;
+  departments[newDepartment->getDepartmentId()] = newDepartment;
 }
 void DataObject::addCourse (Course* newCourse) {
-  courses.at(newCourse->getCourseId()) = newCourse;
+  courses[newCourse->getCourseId()] = newCourse;
 }
 
 void DataObject::removePerson (Person* newPerson) {

@@ -14,8 +14,6 @@ class Course;
 class DataObject
 {
 public:
-  DataObject();
-  virtual ~DataObject();
 
   Person* getPersonById (int id);
   Department* getDepartmentById (int id);

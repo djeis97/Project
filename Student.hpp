@@ -15,7 +15,6 @@ public:
            std::vector<int> myCourses, std::string myLevel, std::string myRole,
            std::vector<int> myCoursesAssisting);
   Student (DataObject *myDataObject);
-  virtual ~Student();
 
   std::string getLevel ();
   void setLevel (std::string newLevel);

@@ -37,6 +37,6 @@ std::istream& operator>> (std::istream& in, Course &me) {
   int studentNum;
   in >> studentNum;
   for (int i=0; i < studentNum; i++)
-    in >> me.grades.at(i);
+    in >> me.grades[i];
   return in;
 }

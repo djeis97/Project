@@ -21,7 +21,12 @@ void Teacher::setTitle (std::string newTitle) {
 }
 
 std::ostream& operator<< (std::ostream& out, Teacher& me) {
-  return out;
+  out << static_cast<Person&>(me)
+      << me.title << std::endl
+      << me.coursesTeaching.size();
+  for (auto it = me.coursesTeaching.begin(); it != me.coursesTeaching.end(); ++it)
+    out << " " << *it;
+  return out << std::endl;
 }
 
 std::istream& operator>> (std::istream& in, Teacher& me) {

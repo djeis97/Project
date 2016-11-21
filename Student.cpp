@@ -23,6 +23,20 @@ void Student::setLevel (std::string newLevel) {
   level = newLevel;
 }
 
+std::ostream& operator<< (std::ostream& out, Student& me) {
+  out << static_cast<Person&>(me)
+      << me.level << std::endl
+      << me.courses.size();
+  for (auto it = me.courses.begin(); it != me.courses.end(); ++it)
+    out << " " << *it;
+  out << std::endl
+      << me.role << std::endl
+      << me.coursesAssisting.size();
+  for (auto it = me.coursesAssisting.begin(); it != me.coursesAssisting.end(); ++it)
+    out << " " << *it;
+  return out << std::endl;
+}
+
 std::istream& operator>> (std::istream& in, Student& me) {
   in >> static_cast<Person&>(me);
   in.ignore(500, '\n');

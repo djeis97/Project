@@ -16,7 +16,6 @@ public:
            std::string myGender, int departmentId, DataObject *dataObject,
            std::string myTitle, std::vector<int> myCoursesTeaching);
   Teacher (DataObject *dataObject);
-  virtual ~Teacher ();
 
   std::string getTitle ();
   void setTitle (std::string newTitle);

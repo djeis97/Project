@@ -50,6 +50,14 @@ void Person::setGender (std::string newGender) {
   gender = newGender;
 }
 
+std::ostream& operator<< (std::ostream& out, Person& me) {
+  return out << me.universityID << std::endl
+             << me.name << std::endl
+             << me.birthDate << std::endl
+             << me.gender << std::endl
+             << me.departmentId << std::endl;
+}
+
 std::istream& operator>> (std::istream& in, Person& me) {
   me.dataObject->removePerson(&me);
   in >> me.universityID;
