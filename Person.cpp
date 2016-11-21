@@ -9,16 +9,13 @@ Person::Person (std::string myName, int id, Date bDate,
   : name(myName), universityID(id), birthDate(bDate),
     gender(myGender), departmentId(myDepartmentId),
     dataObject(myDataObject) {
-  dataObject->addPerson(this);
 }
 
 Person::Person (DataObject *myDataObject)
   : universityID(0),  dataObject(myDataObject) {
-  dataObject->addPerson(this);
 }
 
 Person::~Person () {
-  dataObject->removePerson(this);
 }
 
 std::string Person::getName () {

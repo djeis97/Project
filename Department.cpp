@@ -6,16 +6,13 @@
 
 Department::Department (int myId, std::string myName, DataObject *myDataObject)
   : departmentId(myId), name(myName), dataObject(myDataObject) {
-  dataObject->addDepartment(this);
 }
 
 Department::Department (DataObject *myDataObject)
   : dataObject(myDataObject) {
-  dataObject->addDepartment(this);
 }
 
 Department::~Department () {
-  dataObject->removeDepartment(this);
 }
 
 std::string Department::getName () {
