@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include "Person.hpp"
+#include "Date.hpp"
 
 #include <string.h>
 #include <vector>

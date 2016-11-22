@@ -1,9 +1,12 @@
 #include "Student.hpp"
+#include "Person.hpp"
+#include "Date.hpp"
 
 #include <string.h>
 #include <iostream>
 #include <vector>
 #include <map>
+
 
 Student::Student () {}
 

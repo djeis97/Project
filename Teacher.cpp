@@ -1,4 +1,6 @@
 #include "Teacher.hpp"
+#include "Person.hpp"
+#include "Date.hpp"
 
 #include <vector>
 

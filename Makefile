@@ -1,61 +1,29 @@
 #Comment
-#CC=c++
-#CFLAGS=-c -Wall
+CC=g++
+CFLAGS=-Wall -std=c++11
 
 all: Project
 
-Project: main.o Adjunct.o Assistant.o Course.o Department.o GradCourse.o Lecturer.o Person.o Professor.o RA.o TA.o Teacher.o UnderGraduate.o
-	c++ -c main.o Adjunct.o Assistant.o Course.o Department.o GradCourse.o Lecturer.o Person.o Professor.o RA.o TA.o Teacher.o UnderGraduate.o -o Project
+Project: main.o Date.o DataObject.o Course.o Department.o Person.o Teacher.o Student.o
+	$(CC) $(CFLAGS) main.o Date.o DataObject.o Course.o Department.o Person.o Teacher.o Student.o -o Project
 
-main.o: main.cpp
-	c++ -c main.cpp
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-Adjunct.o: Adjunct.cpp
-	c++ -c Adjunct.cpp
+%.cpp: %.hpp
 
-Assistant.o: Assistant.cpp
-	c++ -c Assistant.cpp
+DataObject.cpp: Person.hpp Department.hpp Course.hpp
+Person.cpp: Date.hpp
+Teacher.cpp: Person.hpp Date.hpp
+Student.cpp: Person.hpp Date.hpp
+main.cpp: DataObject.hpp Person.hpp Teacher.hpp Student.hpp Department.hpp Course.hpp
 
-Course.o: Course.cpp
-	c++ -c Course.cpp
 
-Department.o: Department.cpp
-	c++ -c Department.cpp
-
-GradCourse.o: GradCourse.cpp
-	c++ -c GradCourse.cpp
-
-Graduate.o: Graduate.cpp
-	c++ -c Graduate.cpp
-
-Lecturer.o: Lecturer.cpp
-	c++ -c Lecturer.cpp
-
-Person.o: Person.cpp
-	c++ -c Person.cpp
-
-Professor.o: Professor.cpp
-	c++ -c Professor.cpp
-
-RA.o: RA.cpp
-	c++ -c RA.cpp
-
-TA.o: TA.cpp
-	c++ -c TA.cpp
-
-Teacher.o: Teacher.cpp
-	c++ -c Teacher.cpp
-
-UnderGradCourse.o: UnderGradCourse.cpp
-	c++ -c UnderGradCourse.cpp
-
-UnderGraduate.o: UnderGraduate.cpp
-	c++ -c UnderGraduate.cpp
 
 clean:
-	rm *.o* Project
+	rm *.o*
 
 default:
-	make clean
+	make Project
 wrap:
 	rm *.o
