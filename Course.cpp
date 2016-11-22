@@ -1,18 +1,14 @@
 #include "Course.hpp"
-#include "DataObject.hpp"
 
 #include <string.h>
 #include <iostream>
 
-Course::Course (int myId, std::string myName, std::string myLevel,
-                int myDepartmentId, std::map<int, int> myGrades,
-                DataObject *myDataObject)
-  : courseId(myId), name(myName), level(myLevel), departmentId(myDepartmentId),
-    grades(myGrades), dataObject(myDataObject) {
-}
+Course::Course () {}
 
-Course::Course (DataObject *myDataObject)
-  : dataObject(myDataObject) {
+Course::Course (int myId, std::string myName, std::string myLevel,
+                int myDepartmentId, std::map<int, int> myGrades)
+  : courseId(myId), name(myName), level(myLevel), departmentId(myDepartmentId),
+    grades(myGrades) {
 }
 
 Course::~Course () {

@@ -1,17 +1,17 @@
 #include "Teacher.hpp"
-#include "DataObject.hpp"
 
 #include <vector>
 
+Teacher::Teacher () {}
 
 Teacher::Teacher (std::string myName, int id, Date bDate,
-                  std::string myGender, int departmentId, DataObject *dataObject,
+                  std::string myGender, int departmentId,
                   std::string myTitle, std::vector<int> myCoursesTeaching)
-  : Person(myName, id, bDate, myGender, departmentId, dataObject),
+  : Person(myName, id, bDate, myGender, departmentId),
     title(myTitle), coursesTeaching(myCoursesTeaching) {
 }
-Teacher::Teacher (DataObject *dataObject)
-  : Person(dataObject) {}
+
+Teacher::~Teacher () {}
 
 std::string Teacher::getTitle () {
   return title;

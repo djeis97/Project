@@ -10,11 +10,11 @@
 class Student : public Person
 {
 public:
+  Student ();
   Student (std::string myName, int id, Date bDate,
-           std::string myGender, int departmentId, DataObject *myDataObject,
+           std::string myGender, int departmentId,
            std::vector<int> myCourses, std::string myLevel, std::string myRole,
            std::vector<int> myCoursesAssisting);
-  Student (DataObject *myDataObject);
 
   std::string getLevel ();
   void setLevel (std::string newLevel);

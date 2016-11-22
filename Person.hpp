@@ -4,16 +4,13 @@
 #include <string>
 
 #include "Date.hpp"
-#include "DataObject.hpp"
-
-class DataObject;
 
 class Person
 {
 public:
+  Person ();
   Person(std::string myName, int id, Date bDate,
-         std::string myGender, int departmentId, DataObject *myDataObject);
-  Person(DataObject *myDataObject);
+         std::string myGender, int departmentId);
 
   //! Destructor
   virtual ~Person() noexcept;
@@ -37,7 +34,6 @@ private:
   Date birthDate;
   std::string gender;
   int departmentId;
-  DataObject *dataObject;
   friend std::ostream& operator<< (std::ostream&, Person& me);
   friend std::istream& operator>> (std::istream&, Person& me);
 

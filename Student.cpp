@@ -5,16 +5,15 @@
 #include <vector>
 #include <map>
 
+Student::Student () {}
+
 Student::Student (std::string myName, int id, Date bDate,
-         std::string myGender, int departmentId, DataObject *myDataObject,
+         std::string myGender, int departmentId,
                   std::vector<int> myCourses, std::string myLevel, std::string myRole,
                   std::vector<int> myCoursesAssisting)
-  : Person(myName, id, bDate, myGender, departmentId, myDataObject),
+  : Person(myName, id, bDate, myGender, departmentId),
     courses(myCourses), level(myLevel), role(myRole),
     coursesAssisting(myCoursesAssisting) {}
-
-Student::Student (DataObject *myDataObject)
-  : Person(myDataObject) {}
 
 std::string Student::getLevel () {
   return level;

@@ -2,17 +2,13 @@
 #include <iostream>
 
 #include "Person.hpp"
-#include "DataObject.hpp"
+
+Person::Person () {}
 
 Person::Person (std::string myName, int id, Date bDate,
-                std::string myGender, int myDepartmentId, DataObject *myDataObject)
+                std::string myGender, int myDepartmentId)
   : name(myName), universityID(id), birthDate(bDate),
-    gender(myGender), departmentId(myDepartmentId),
-    dataObject(myDataObject) {
-}
-
-Person::Person (DataObject *myDataObject)
-  : universityID(0),  dataObject(myDataObject) {
+    gender(myGender), departmentId(myDepartmentId) {
 }
 
 Person::~Person () {

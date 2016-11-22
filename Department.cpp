@@ -1,19 +1,15 @@
 #include "Department.hpp"
-#include "DataObject.hpp"
 
 #include <iostream>
 #include <string.h>
 
-Department::Department (int myId, std::string myName, DataObject *myDataObject)
-  : departmentId(myId), name(myName), dataObject(myDataObject) {
+Department::Department () {}
+
+Department::Department (int myId, std::string myName)
+  : departmentId(myId), name(myName)  {
 }
 
-Department::Department (DataObject *myDataObject)
-  : dataObject(myDataObject) {
-}
-
-Department::~Department () {
-}
+Department::~Department () {}
 
 std::string Department::getName () {
   return name;

@@ -3,7 +3,6 @@
 
 #include "Person.hpp"
 #include "Date.hpp"
-#include "DataObject.hpp"
 
 #include <iostream>
 #include <vector>
@@ -12,10 +11,11 @@
 class Teacher : public Person
 {
 public:
+  Teacher ();
   Teacher (std::string myName, int id, Date bDate,
-           std::string myGender, int departmentId, DataObject *dataObject,
+           std::string myGender, int departmentId,
            std::string myTitle, std::vector<int> myCoursesTeaching);
-  Teacher (DataObject *dataObject);
+  ~Teacher ();
 
   std::string getTitle ();
   void setTitle (std::string newTitle);

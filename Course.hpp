@@ -1,21 +1,16 @@
 #ifndef COURSE_H
 #define COURSE_H
 
-#include "DataObject.hpp"
-
 #include <map>
 #include <string.h>
 #include <iostream>
 
-class DataObject;
-
 class Course
 {
 public:
+  Course ();
   Course (int myId, std::string myName, std::string myLevel,
-          int myDepartmentId, std::map<int, int> myGrades,
-          DataObject *myDataObject);
-  Course (DataObject *myDataObject);
+          int myDepartmentId, std::map<int, int> myGrades);
   virtual ~Course ();
 
   int getCourseId ();
@@ -26,7 +21,6 @@ private:
   std::string level;
   int departmentId;
   std::map<int, int> grades; // Student IDs to Grades
-  DataObject *dataObject;
 
   int getStudentGrade (int studentId);
   friend std::ostream& operator<< (std::ostream& out, Course& me);

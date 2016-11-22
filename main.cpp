@@ -15,7 +15,7 @@ int main()
   {
     std::ifstream departments("Departments.txt");
     while (!(departments.eof())) {
-      Department *d = new Department (&dataObject);
+      Department *d = new Department();
       departments >> *d;
       dataObject.addDepartment(d);
       departments.ignore(500, '\n');
@@ -24,7 +24,7 @@ int main()
   {
     std::ifstream students("Students.txt");
     while (!(students.eof())) {
-      Student *s = new Student (&dataObject);
+      Student *s = new Student();
       students >> *s;
       dataObject.addPerson(s);
       students.ignore(500, '\n');
@@ -34,7 +34,7 @@ int main()
   {
     std::ifstream courses("Courses.txt");
     while (!(courses.eof())) {
-      Course *c = new Course (&dataObject);
+      Course *c = new Course();
       courses >> *c;
       dataObject.addCourse(c);
       courses.ignore(500, '\n');
@@ -44,7 +44,7 @@ int main()
   {
     std::ifstream teachers("Teachers.txt");
     while (!(teachers.eof())) {
-      Teacher *t = new Teacher (&dataObject);
+      Teacher *t = new Teacher();
       teachers >> *t;
       dataObject.addPerson(t);
       teachers.ignore(500, '\n');
