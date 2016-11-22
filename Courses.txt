@@ -1,6 +1,21 @@
 1
 Object Oriented Design
 Undergraduate
+1
 2
 1 90
 3 88
+
+2
+Computer Org
+Undergraduate
+1
+1
+3 75
+
+3
+Discrete Structures
+Graduate
+1
+1
+2 95
