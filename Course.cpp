@@ -31,6 +31,7 @@ std::istream& operator>> (std::istream& in, Course &me) {
   in.ignore(500, '\n');
   std::getline(in, me.name);
   std::getline(in, me.level);
+  in >> me.departmentId;
   int studentNum;
   in >> studentNum;
   for (int i=0; i < studentNum; i++) {
