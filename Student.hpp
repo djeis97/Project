@@ -20,6 +20,11 @@ public:
   std::string getLevel () const;
   void setLevel (std::string newLevel);
 
+  std::vector<int>::const_iterator coursesBegin () const;
+  std::vector<int>::const_iterator coursesEnd () const;
+  std::vector<int>::const_iterator coursesAssistingBegin () const;
+  std::vector<int>::const_iterator coursesAssistingEnd () const;
+
 private:
   std::vector<int> courses;
   std::string level;

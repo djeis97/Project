@@ -25,6 +25,22 @@ void Student::setLevel (std::string newLevel) {
   level = newLevel;
 }
 
+std::vector<int>::const_iterator Student::coursesBegin () const {
+  return courses.cbegin();
+}
+
+std::vector<int>::const_iterator Student::coursesEnd () const {
+  return courses.cend();
+}
+
+std::vector<int>::const_iterator Student::coursesAssistingBegin () const {
+  return coursesAssisting.cbegin();
+}
+
+std::vector<int>::const_iterator Student::coursesAssistingEnd () const {
+  return coursesAssisting.cend();
+}
+
 std::ostream& operator<< (std::ostream& out, const Student& me) {
   out << static_cast<const Person&>(me)
       << me.level << std::endl

@@ -22,6 +22,14 @@ void Teacher::setTitle (std::string newTitle) {
   title = newTitle;
 }
 
+std::vector<int>::const_iterator Teacher::coursesTeachingBegin () const {
+  return coursesTeaching.cbegin();
+}
+
+std::vector<int>::const_iterator Teacher::coursesTeachingEnd () const {
+  return coursesTeaching.cend();
+}
+
 std::ostream& operator<< (std::ostream& out, const Teacher& me) {
   out << dynamic_cast<const Person&>(me)
       << me.title << std::endl
