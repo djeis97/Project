@@ -25,6 +25,10 @@ void Student::setLevel (std::string newLevel) {
   level = newLevel;
 }
 
+std::string Student::getRole () const {
+  return role;
+}
+
 std::vector<int>::const_iterator Student::coursesBegin () const {
   return courses.cbegin();
 }
