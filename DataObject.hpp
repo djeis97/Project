@@ -15,9 +15,9 @@ class DataObject
 {
 public:
 
-  Person* getPersonById (int id);
-  Department* getDepartmentById (int id);
-  Course* getCourseById (int id);
+  Person* getPersonById (int id) const;
+  Department* getDepartmentById (int id) const;
+  Course* getCourseById (int id) const;
 
   void addPerson (Person* newPerson);
   void addDepartment (Department* newDepartment);
@@ -25,6 +25,12 @@ public:
   void removePerson (Person* newPerson);
   void removeDepartment (Department* newDepartment);
   void removeCourse (Course* newCourse);
+  std::map<int, Person*>::const_iterator personBegin () const;
+  std::map<int, Person*>::const_iterator personEnd () const;
+  std::map<int, Department*>::const_iterator departmentBegin() const;
+  std::map<int, Department*>::const_iterator departmentEnd() const;
+  std::map<int, Course*>::const_iterator courseBegin() const;
+  std::map<int, Course*>::const_iterator courseEnd() const;
 
 private:
   std::map<int, Person *> people;
