@@ -44,6 +44,10 @@ void Person::setGender (std::string newGender) {
   gender = newGender;
 }
 
+int Person::getDepartmentId () const {
+  return departmentId;
+}
+
 std::ostream& operator<< (std::ostream& out, const Person& me) {
   return out << me.universityID << std::endl
              << me.name << std::endl

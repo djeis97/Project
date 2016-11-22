@@ -27,6 +27,8 @@ public:
   std::string getGender () const;
   void setGender (std::string newGender);
 
+  int getDepartmentId () const;
+
 
 private:
   std::string name;
