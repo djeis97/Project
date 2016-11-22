@@ -18,6 +18,10 @@ int Course::getCourseId () const {
   return courseId;
 }
 
+std::string Course::getName () const {
+  return name;
+}
+
 int Course::getStudentGrade (int studentId) {
   return grades.at(studentId);
 }

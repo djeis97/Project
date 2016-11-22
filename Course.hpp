@@ -14,6 +14,7 @@ public:
   virtual ~Course ();
 
   int getCourseId () const;
+  std::string getName () const;
 
 private:
   int courseId;
