@@ -15,15 +15,15 @@ Student::Student (std::string myName, int id, Date bDate,
     courses(myCourses), level(myLevel), role(myRole),
     coursesAssisting(myCoursesAssisting) {}
 
-std::string Student::getLevel () {
+std::string Student::getLevel () const {
   return level;
 }
 void Student::setLevel (std::string newLevel) {
   level = newLevel;
 }
 
-std::ostream& operator<< (std::ostream& out, Student& me) {
-  out << static_cast<Person&>(me)
+std::ostream& operator<< (std::ostream& out, const Student& me) {
+  out << static_cast<const Person&>(me)
       << me.level << std::endl
       << me.courses.size();
   for (auto it = me.courses.begin(); it != me.courses.end(); ++it)

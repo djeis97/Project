@@ -51,7 +51,7 @@ int main()
       teachers.ignore(500, '\n');
     }
   }
-  std::cout << *dynamic_cast<Teacher*>(dataObject.getPersonById(100)) << std::endl;
+  std::cout << *dynamic_cast<Teacher const *>(dataObject.getPersonById(100)) << std::endl;
 
   return 0;
 }

@@ -13,15 +13,15 @@ Teacher::Teacher (std::string myName, int id, Date bDate,
 
 Teacher::~Teacher () {}
 
-std::string Teacher::getTitle () {
+std::string Teacher::getTitle () const {
   return title;
 }
 void Teacher::setTitle (std::string newTitle) {
   title = newTitle;
 }
 
-std::ostream& operator<< (std::ostream& out, Teacher& me) {
-  out << static_cast<Person&>(me)
+std::ostream& operator<< (std::ostream& out, const Teacher& me) {
+  out << dynamic_cast<const Person&>(me)
       << me.title << std::endl
       << me.coursesTeaching.size();
   for (auto it = me.coursesTeaching.begin(); it != me.coursesTeaching.end(); ++it)

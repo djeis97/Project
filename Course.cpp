@@ -14,7 +14,7 @@ Course::Course (int myId, std::string myName, std::string myLevel,
 Course::~Course () {
 }
 
-int Course::getCourseId () {
+int Course::getCourseId () const {
   return courseId;
 }
 

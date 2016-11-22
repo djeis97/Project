@@ -15,16 +15,16 @@ public:
   //! Destructor
   virtual ~Person() noexcept;
 
-  std::string getName ();
+  std::string getName () const;
   void setName (std::string newName);
 
-  int getID ();
+  int getID () const;
   void setID (int newID);
 
-  Date getBirthDate ();
+  Date getBirthDate () const;
   void setBirthDate (Date newBirthDate);
 
-  std::string getGender ();
+  std::string getGender () const;
   void setGender (std::string newGender);
 
 
@@ -34,7 +34,7 @@ private:
   Date birthDate;
   std::string gender;
   int departmentId;
-  friend std::ostream& operator<< (std::ostream&, Person& me);
+  friend std::ostream& operator<< (std::ostream&, const Person& me);
   friend std::istream& operator>> (std::istream&, Person& me);
 
 };

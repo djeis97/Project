@@ -17,14 +17,16 @@ public:
            std::string myTitle, std::vector<int> myCoursesTeaching);
   ~Teacher ();
 
-  std::string getTitle ();
+  std::string getTitle () const;
   void setTitle (std::string newTitle);
 
+  std::vector<int>::const_iterator coursesTeachingBegin () const;
+  std::vector<int>::const_iterator coursesTeachingEnd () const;
 
 private:
   std::string title;
   std::vector<int> coursesTeaching;
-  friend std::ostream& operator<< (std::ostream& out, Teacher& me);
+  friend std::ostream& operator<< (std::ostream& out, const Teacher& me);
   friend std::istream& operator>> (std::istream& out, Teacher& me);
 };
 

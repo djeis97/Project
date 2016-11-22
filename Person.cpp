@@ -14,7 +14,7 @@ Person::Person (std::string myName, int id, Date bDate,
 Person::~Person () {
 }
 
-std::string Person::getName () {
+std::string Person::getName () const {
   return name;
 }
 
@@ -22,28 +22,28 @@ void Person::setName (std::string newName) {
   name = newName;
 }
 
-int Person::getID () {
+int Person::getID () const {
   return universityID;
 }
 void Person::setID (int newID) {
   universityID = newID;
 }
 
-Date Person::getBirthDate () {
+Date Person::getBirthDate () const {
   return birthDate;
 }
 void Person::setBirthDate (Date newBirthDate) {
   birthDate = newBirthDate;
 }
 
-std::string Person::getGender () {
+std::string Person::getGender () const {
   return gender;
 }
 void Person::setGender (std::string newGender) {
   gender = newGender;
 }
 
-std::ostream& operator<< (std::ostream& out, Person& me) {
+std::ostream& operator<< (std::ostream& out, const Person& me) {
   return out << me.universityID << std::endl
              << me.name << std::endl
              << me.birthDate << std::endl

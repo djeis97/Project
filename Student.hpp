@@ -16,7 +16,7 @@ public:
            std::vector<int> myCourses, std::string myLevel, std::string myRole,
            std::vector<int> myCoursesAssisting);
 
-  std::string getLevel ();
+  std::string getLevel () const;
   void setLevel (std::string newLevel);
 
 private:
@@ -24,7 +24,7 @@ private:
   std::string level;
   std::string role;
   std::vector<int> coursesAssisting;
-  friend std::ostream& operator<< (std::ostream& out, Student& me);
+  friend std::ostream& operator<< (std::ostream& out, const Student& me);
   friend std::istream& operator>> (std::istream& out, Student& me);
 };
 

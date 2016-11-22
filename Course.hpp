@@ -13,7 +13,7 @@ public:
           int myDepartmentId, std::map<int, int> myGrades);
   virtual ~Course ();
 
-  int getCourseId ();
+  int getCourseId () const;
 
 private:
   int courseId;
@@ -23,7 +23,7 @@ private:
   std::map<int, int> grades; // Student IDs to Grades
 
   int getStudentGrade (int studentId);
-  friend std::ostream& operator<< (std::ostream& out, Course& me);
+  friend std::ostream& operator<< (std::ostream& out, const Course& me);
   friend std::istream& operator>> (std::istream& out, Course& me);
 };
 

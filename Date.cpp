@@ -21,7 +21,7 @@ int Date::getYear () {
   return year;
 }
 
-std::ostream& operator<< (std::ostream& out, Date& me) {
+std::ostream& operator<< (std::ostream& out, const Date& me) {
   return out << me.day << "/" << me.month << "/" << me.year;
 }
 
