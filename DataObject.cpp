@@ -5,13 +5,13 @@
 
 #include <map>
 
-Person* DataObject::getPersonById (int id) const {
+Person const * DataObject::getPersonById (int id) const {
   return (id==0) ? nullptr : people.at(id);
 }
-Department* DataObject::getDepartmentById (int id) const {
+Department const * DataObject::getDepartmentById (int id) const {
   return (id==0) ? nullptr : departments.at(id);
 }
-Course* DataObject::getCourseById (int id) const {
+Course const * DataObject::getCourseById (int id) const {
   return (id==0) ? nullptr : courses.at(id);
 }
 

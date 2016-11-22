@@ -15,9 +15,9 @@ class DataObject
 {
 public:
 
-  Person* getPersonById (int id) const;
-  Department* getDepartmentById (int id) const;
-  Course* getCourseById (int id) const;
+  Person const * getPersonById (int id) const;
+  Department const * getDepartmentById (int id) const;
+  Course const * getCourseById (int id) const;
 
   void addPerson (Person* newPerson);
   void addDepartment (Department* newDepartment);
