@@ -14,8 +14,10 @@ public:
   virtual ~Course ();
 
   int getCourseId () const;
-  std::string getName () const;
+  const std::string& getName () const;
+  const std::string& getLevel () const;
   int getStudentGrade (int studentId);
+
 
   const std::map<int, int>& getGrades () const;
 

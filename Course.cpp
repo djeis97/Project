@@ -18,8 +18,12 @@ int Course::getCourseId () const {
   return courseId;
 }
 
-std::string Course::getName () const {
+const std::string& Course::getName () const {
   return name;
+}
+
+const std::string& Course::getLevel () const {
+  return level;
 }
 
 int Course::getStudentGrade (int studentId) {
