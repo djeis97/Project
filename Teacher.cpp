@@ -2,13 +2,13 @@
 #include "Person.hpp"
 #include "Date.hpp"
 
-#include <vector>
+#include <set>
 
 Teacher::Teacher () {}
 
 Teacher::Teacher (std::string myName, int id, Date bDate,
                   std::string myGender, int departmentId,
-                  std::string myTitle, std::vector<int> myCoursesTeaching)
+                  std::string myTitle, std::set<int> myCoursesTeaching)
   : Person(myName, id, bDate, myGender, departmentId),
     title(myTitle), coursesTeaching(myCoursesTeaching) {
 }
@@ -22,7 +22,7 @@ void Teacher::setTitle (std::string newTitle) {
   title = newTitle;
 }
 
-const std::vector<int>& Teacher::getCoursesTeaching () const {
+const std::set<int>& Teacher::getCoursesTeaching () const {
   return coursesTeaching;
 }
 
@@ -41,9 +41,11 @@ std::istream& operator>> (std::istream& in, Teacher& me) {
   std::getline(in, me.title);
   int courseNum;
   in >> courseNum;
-  me.coursesTeaching.resize(courseNum);
-  for (int i=0; i < courseNum; i++)
-    in >> me.coursesTeaching.at(i);
+  for (int i=0; i < courseNum; i++){
+    int courseId;
+    in >> courseId;
+    me.coursesTeaching.insert(courseId);
+  }
 
   return in;
 }

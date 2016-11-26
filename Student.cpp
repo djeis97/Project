@@ -4,7 +4,7 @@
 
 #include <string.h>
 #include <iostream>
-#include <vector>
+#include <set>
 #include <map>
 
 
@@ -12,8 +12,8 @@ Student::Student () {}
 
 Student::Student (std::string myName, int id, Date bDate,
          std::string myGender, int departmentId,
-                  std::vector<int> myCourses, std::string myLevel, std::string myRole,
-                  std::vector<int> myCoursesAssisting)
+                  std::set<int> myCourses, std::string myLevel, std::string myRole,
+                  std::set<int> myCoursesAssisting)
   : Person(myName, id, bDate, myGender, departmentId),
     courses(myCourses), level(myLevel), role(myRole),
     coursesAssisting(myCoursesAssisting) {}
@@ -29,10 +29,10 @@ std::string Student::getRole () const {
   return role;
 }
 
-const std::vector<int>& Student::getCourses () const {
+const std::set<int>& Student::getCourses () const {
   return courses;
 }
-const std::vector<int>& Student::getCoursesAssisting () const {
+const std::set<int>& Student::getCoursesAssisting () const {
   return coursesAssisting;
 }
 
@@ -56,15 +56,18 @@ std::istream& operator>> (std::istream& in, Student& me) {
   std::getline(in, me.level);
   int courseNum = 0;
   in >> courseNum;
-  me.courses.resize(courseNum);
-  for(int i=0; i<courseNum; i++)
-    in >> me.courses.at(i);
+  for(int i=0; i<courseNum; i++) {
+    int courseId;
+    in >> courseId;
+    me.courses.insert(courseId);
+  }
   in.ignore(500, '\n');
   std::getline(in, me.role);
   in >> courseNum;
-  me.coursesAssisting.resize(courseNum);
-  for (int i=0; i < courseNum; i++)
-    in >> me.coursesAssisting.at(i);
-
+  for (int i=0; i < courseNum; i++) {
+    int courseId;
+    in >> courseId;
+    me.coursesAssisting.insert(courseId);
+  }
   return in;
 }
