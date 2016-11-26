@@ -30,6 +30,10 @@ int Course::getStudentGrade (int studentId) {
   return grades.at(studentId);
 }
 
+int Course::getDepartmentId () const {
+  return departmentId;
+}
+
 const std::map<int, int>& Course::getGrades () const {
   return grades;
 }
