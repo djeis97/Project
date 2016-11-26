@@ -108,6 +108,42 @@ void displayCourse (std::ostream& out, const DataObject& dataObject, const Cours
 
 }
 
+void displayDepartment (std::ostream& out, const DataObject& dataObject, const Department& dep) {
+  out << dep.getName() << std::endl;
+  auto people = dataObject.getPeople();
+  out << "Teachers:" << std::endl;
+  std::for_each(people.cbegin(),
+                people.cend(),
+                [&] (std::pair<int, Person*> p) {
+                  auto t = dynamic_cast<Teacher*>(p.second);
+                  if ((t!=nullptr)) {
+                    if (t->getDepartmentId()==dep.getDepartmentId())
+                      out << "\t" << t->getName() << " (" << t->getID() << ")"
+                          << std::endl;
+                  }
+                });
+  out << "Students:" << std::endl;
+  std::for_each(people.cbegin(),
+                people.cend(),
+                [&] (std::pair<int, Person*> p) {
+                  auto t = dynamic_cast<Student*>(p.second);
+                  if ((t!=nullptr)) {
+                    if (t->getDepartmentId()==dep.getDepartmentId())
+                      out << "\t" << t->getName() << " (" << t->getID() << ")"
+                          << std::endl;
+                  }
+                });
+  out << "Courses:" << std::endl;
+  std::for_each(dataObject.getCourses().cbegin(),
+                dataObject.getCourses().cend(),
+                [&] (std::pair<int, Course*> c) {
+                  if (c.second->getDepartmentId()==dep.getDepartmentId())
+                    out << "\t" << c.second->getName() << " (" << c.second->getCourseId() << ")"
+                        << std::endl;
+                });
+
+}
+
 int main()
 {
   DataObject dataObject;
@@ -154,9 +190,21 @@ int main()
     }
   }
   std::cout << "Loaded Teachers" << std::endl << std::flush;
+
+  std::cout << "Enter a university ID: ";
+  int personId;
+  std::cin >> personId;
   displayPersonDispatch(std::cout, dataObject,
-                        *dataObject.getPeople().at(100));
-  displayCourse(std::cout, dataObject, *dataObject.getCourses().at(1));
+                        *dataObject.getPeople().at(personId));
+  std::cout << "Enter a course ID: ";
+  int courseId;
+  std::cin >> courseId;
+  displayCourse(std::cout, dataObject, *dataObject.getCourses().at(courseId));
+
+  std::cout << "Enter a department ID: ";
+  int departmentId;
+  std::cin >> departmentId;
+  displayDepartment(std::cout, dataObject, *dataObject.getDepartments().at(departmentId));
 
   return 0;
 }
