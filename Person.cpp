@@ -15,22 +15,21 @@ Person::Person (std::string myName, int id, Date bDate,
 Person::~Person () {
 }
 
+// Getters for person members.
 std::string Person::getName () const {
   return name;
 }
-
 int Person::getID () const {
   return universityID;
 }
-
 Date Person::getBirthDate () const {
   return birthDate;
 }
-
 int Person::getDepartmentId () const {
   return departmentId;
 }
 
+// Person debug printer.
 std::ostream& operator<< (std::ostream& out, const Person& me) {
   return out << me.universityID << std::endl
              << me.name << std::endl
@@ -39,14 +38,15 @@ std::ostream& operator<< (std::ostream& out, const Person& me) {
              << me.departmentId << std::endl;
 }
 
+// Person record parser.
 std::istream& operator>> (std::istream& in, Person& me) {
-  in >> me.universityID;
-  in.ignore(500, '\n');
-  std::getline(in, me.name);
-  in >> me.birthDate;
-  in.ignore(500, '\n');
-  std::getline(in, me.gender);
-  in >> me.departmentId;
+  in >> me.universityID; // Read ID
+  in.ignore(500, '\n'); // Skip newline after int
+  std::getline(in, me.name); // Read name
+  in >> me.birthDate; // Read date
+  in.ignore(500, '\n'); // Skip newline after int
+  std::getline(in, me.gender); // Read gender
+  in >> me.departmentId; // Read dept ID
 
 
   return in;
