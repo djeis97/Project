@@ -16,16 +16,12 @@ public:
   virtual ~Person() noexcept;
 
   std::string getName () const;
-  void setName (std::string newName);
 
   int getID () const;
-  void setID (int newID);
 
   Date getBirthDate () const;
-  void setBirthDate (Date newBirthDate);
 
   std::string getGender () const;
-  void setGender (std::string newGender);
 
   int getDepartmentId () const;
 

@@ -26,22 +26,9 @@ void Person::setName (std::string newName) {
 int Person::getID () const {
   return universityID;
 }
-void Person::setID (int newID) {
-  universityID = newID;
-}
 
 Date Person::getBirthDate () const {
   return birthDate;
-}
-void Person::setBirthDate (Date newBirthDate) {
-  birthDate = newBirthDate;
-}
-
-std::string Person::getGender () const {
-  return gender;
-}
-void Person::setGender (std::string newGender) {
-  gender = newGender;
 }
 
 int Person::getDepartmentId () const {
