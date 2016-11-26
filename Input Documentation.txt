@@ -1,0 +1,38 @@
+Records in each file are structured as follows:
+
+Each record is separated by a blank line.
+
+Students.txt:
+<Person ID : int>
+<Name : string>
+<Day : int> <Month : int> <Year : int>
+<Gender : string>
+<Department ID : int>
+<Degree level : string>
+<Number of enrolled courses> <ID of enrolled Course> <ID of second enrolled course> <etc...>
+<Job (TA, RA, or None by convention)>
+<Number of courses assisting> <ID of course assisting> <ID of second course assisting> <etc...>
+
+Teachers.txt:
+<Person ID : int>
+<Name : string>
+<Day : int> <Month : int> <Year : int>
+<Gender : string>
+<Department ID : int>
+<Teaching level : string>
+<Number of courses teaching> <ID of course teaching> <ID of second course teaching> <etc...>
+
+Courses.txt:
+<Course ID : int>
+<Name : string>
+<Course level : string>
+<Department ID : int>
+<Number of students in course : int>
+<Person ID of student in course : int> <Percentage grade of respective student : int>
+<Person ID of second student in course : int> <Percentage grade of respective student : int>
+<etc...>
+
+Departments.txt:
+<Department ID : int>
+<Name : string>
+
