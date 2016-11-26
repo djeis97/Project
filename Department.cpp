@@ -11,12 +11,12 @@ Department::Department (int myId, std::string myName)
 
 Department::~Department () {}
 
-std::string Department::getName () const {
-  return name;
-}
-
 int Department::getDepartmentId () const {
   return departmentId;
+}
+
+std::string Department::getName () const {
+  return name;
 }
 
 std::ostream& operator<< (std::ostream& out, const Department& me) {
