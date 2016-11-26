@@ -28,6 +28,9 @@ Date Person::getBirthDate () const {
 int Person::getDepartmentId () const {
   return departmentId;
 }
+std::string Person::getGender () const {
+  return gender;
+}
 
 // Person debug printer.
 std::ostream& operator<< (std::ostream& out, const Person& me) {
