@@ -5,16 +5,6 @@
 
 #include <map>
 
-Person const * DataObject::getPersonById (int id) const {
-  return (id==0) ? nullptr : people.at(id);
-}
-Department const * DataObject::getDepartmentById (int id) const {
-  return (id==0) ? nullptr : departments.at(id);
-}
-Course const * DataObject::getCourseById (int id) const {
-  return (id==0) ? nullptr : courses.at(id);
-}
-
 void DataObject::addPerson (Person* newPerson) {
   people[newPerson->getID()] = newPerson;
 }
