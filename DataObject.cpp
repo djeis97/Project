@@ -59,3 +59,13 @@ std::map<int, Course*>::const_iterator DataObject::courseBegin () const {
 std::map<int, Course*>::const_iterator DataObject::courseEnd () const {
   return courses.cend();
 }
+
+const std::map<int, Person*>& DataObject::getPeople () const {
+  return people;
+}
+const std::map<int, Department*>& DataObject::getDepartments () const {
+  return departments;
+}
+const std::map<int, Course*>& DataObject::getCourses () const {
+  return courses;
+}

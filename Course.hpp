@@ -15,6 +15,9 @@ public:
 
   int getCourseId () const;
   std::string getName () const;
+  int getStudentGrade (int studentId);
+
+  const std::map<int, int>& getGrades () const;
 
 private:
   int courseId;
@@ -23,7 +26,6 @@ private:
   int departmentId;
   std::map<int, int> grades; // Student IDs to Grades
 
-  int getStudentGrade (int studentId);
   friend std::ostream& operator<< (std::ostream& out, const Course& me);
   friend std::istream& operator>> (std::istream& out, Course& me);
 };

@@ -45,6 +45,13 @@ std::vector<int>::const_iterator Student::coursesAssistingEnd () const {
   return coursesAssisting.cend();
 }
 
+const std::vector<int>& Student::getCourses () const {
+  return courses;
+}
+const std::vector<int>& Student::getCoursesAssisting () const {
+  return coursesAssisting;
+}
+
 std::ostream& operator<< (std::ostream& out, const Student& me) {
   out << static_cast<const Person&>(me)
       << me.level << std::endl

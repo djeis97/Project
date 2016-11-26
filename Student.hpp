@@ -27,6 +27,9 @@ public:
   std::vector<int>::const_iterator coursesAssistingBegin () const;
   std::vector<int>::const_iterator coursesAssistingEnd () const;
 
+  const std::vector<int>& getCourses () const;
+  const std::vector<int>& getCoursesAssisting () const;
+
 private:
   std::vector<int> courses;
   std::string level;

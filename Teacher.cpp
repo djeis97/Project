@@ -30,6 +30,10 @@ std::vector<int>::const_iterator Teacher::coursesTeachingEnd () const {
   return coursesTeaching.cend();
 }
 
+const std::vector<int>& Teacher::getCoursesTeaching () const {
+  return coursesTeaching;
+}
+
 std::ostream& operator<< (std::ostream& out, const Teacher& me) {
   out << dynamic_cast<const Person&>(me)
       << me.title << std::endl

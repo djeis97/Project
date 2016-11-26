@@ -31,6 +31,9 @@ public:
   std::map<int, Department*>::const_iterator departmentEnd() const;
   std::map<int, Course*>::const_iterator courseBegin() const;
   std::map<int, Course*>::const_iterator courseEnd() const;
+  const std::map<int, Person*>& getPeople () const;
+  const std::map<int, Department*>& getDepartments () const;
+  const std::map<int, Course*>& getCourses () const;
 
 private:
   std::map<int, Person *> people;

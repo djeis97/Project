@@ -26,6 +26,10 @@ int Course::getStudentGrade (int studentId) {
   return grades.at(studentId);
 }
 
+const std::map<int, int>& Course::getGrades () const {
+  return grades;
+}
+
 std::istream& operator>> (std::istream& in, Course &me) {
   in >> me.courseId;
   in.ignore(500, '\n');

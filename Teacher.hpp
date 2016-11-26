@@ -23,6 +23,8 @@ public:
   std::vector<int>::const_iterator coursesTeachingBegin () const;
   std::vector<int>::const_iterator coursesTeachingEnd () const;
 
+  const std::vector<int>& getCoursesTeaching () const;
+
 private:
   std::string title;
   std::vector<int> coursesTeaching;
