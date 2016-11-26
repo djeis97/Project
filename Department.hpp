@@ -12,7 +12,7 @@ public:
   virtual ~Department ();
 
   std::string getName () const;
-  int getDepartmentId ();
+  int getDepartmentId () const;
 
 private:
   int departmentId;

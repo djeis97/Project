@@ -15,7 +15,7 @@ std::string Department::getName () const {
   return name;
 }
 
-int Department::getDepartmentId () {
+int Department::getDepartmentId () const {
   return departmentId;
 }
 
