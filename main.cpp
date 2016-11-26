@@ -10,6 +10,9 @@
 #include <fstream>
 #include <algorithm>
 
+// Report generators.
+
+// Displays the data relaed to Person
 void displayPerson (std::ostream& out, const DataObject& dataObject, const Person& person) {
   out
     << "Name: " << person.getName() << std::endl
@@ -20,6 +23,7 @@ void displayPerson (std::ostream& out, const DataObject& dataObject, const Perso
     << std::endl;
 }
 
+// Prints a record for a student to the out parameter.
 void displayStudent (std::ostream& out, const DataObject& dataObject, const Student& student)
 {
   displayPerson(out, dataObject, student);
@@ -44,6 +48,7 @@ void displayStudent (std::ostream& out, const DataObject& dataObject, const Stud
   }
 }
 
+// Prints a record for a teacher to the out parameter.
 void displayTeacher (std::ostream& out, const DataObject& dataObject, const Teacher& teacher) {
   displayPerson(out, dataObject, teacher);
   out << "Title: " << teacher.getTitle() << std::endl;
@@ -56,6 +61,8 @@ void displayTeacher (std::ostream& out, const DataObject& dataObject, const Teac
   out << std::endl;
 }
 
+// Selects at runtime whether it's been passed a Teacher or a Student
+// (And calls the appropriate report generator)
 void displayPersonDispatch (std::ostream& out, const DataObject& dataObject, const Person& person) {
   Student const* s = dynamic_cast<Student const *>(&person);
   if (s!=nullptr) {
@@ -67,39 +74,44 @@ void displayPersonDispatch (std::ostream& out, const DataObject& dataObject, con
   }
 }
 
+// Prints a report for a course to the out parameter.
 void displayCourse (std::ostream& out, const DataObject& dataObject, const Course& course) {
-  out << course.getName() << std::endl
-      << "Department: " << dataObject.getDepartments().at(course.getDepartmentId())->getName()
-      << std::endl
-      << "Level: " << course.getLevel() << std::endl
-      << "Teachers:" << std::endl;
+  out
+    << course.getName() << std::endl
+    << "Department: " << dataObject.getDepartments().at(course.getDepartmentId())->getName()
+    << std::endl
+    << "Level: " << course.getLevel() << std::endl
+    << "Teachers:" << std::endl;
+
   auto people = dataObject.getPeople();
-  std::for_each(people.cbegin(),
+  // Print out the names of each teacher assigned to this class
+  std::for_each(people.cbegin(), // For each person in the university
                 people.cend(),
                 [&] (std::pair<int, Person*> p) {
-                  auto t = dynamic_cast<Teacher*>(p.second);
+                  auto t = dynamic_cast<Teacher*>(p.second); // Is it a teacher?
                   if ((t!=nullptr)) {
-                    auto coursesTeaching = t->getCoursesTeaching();
+                    auto coursesTeaching = t->getCoursesTeaching(); // Are they teaching this?
                     if (coursesTeaching.find(course.getCourseId())!=coursesTeaching.cend())
                       out << "\t" << t->getName() << " (" << t->getID() << ")"
                           << std::endl;
                   }
                 });
+  // Print out the names of each assistent
   out << "Teaching Assistents:" << std::endl;
-  std::for_each(people.cbegin(),
+  std::for_each(people.cbegin(), // For each person in the university
                 people.cend(),
                 [&] (std::pair<int, Person*> p) {
-                  auto s = dynamic_cast<Student*>(p.second);
+                  auto s = dynamic_cast<Student*>(p.second); // Is it a student?
                   if ((s!=nullptr)) {
-                    auto coursesTeaching = s->getCoursesAssisting();
+                    auto coursesTeaching = s->getCoursesAssisting(); // Are they assissting this?
                     if (coursesTeaching.find(course.getCourseId())!=coursesTeaching.cend())
                       out << "\t" << s->getName() << " (" << s->getID() << ")"
                           << std::endl;
                   }
                 });
   out << "Student grades: " << std::endl;
-  std::for_each(course.getGrades().cbegin(),
-                course.getGrades().cend(),
+  std::for_each(course.getGrades().cbegin(), // Print out the name and percent grade
+                course.getGrades().cend(),   // of each student in the class
                 [&] (std::pair<int, int> p) {
                   auto s = dynamic_cast<Student*>(dataObject.getPeople().at(p.first));
                   out << "\t" << s->getName() << " (" << s->getID() << ")"
@@ -108,36 +120,40 @@ void displayCourse (std::ostream& out, const DataObject& dataObject, const Cours
 
 }
 
+// Prints a report for a department to the out parameter
 void displayDepartment (std::ostream& out, const DataObject& dataObject, const Department& dep) {
   out << dep.getName() << std::endl;
   auto people = dataObject.getPeople();
   out << "Teachers:" << std::endl;
-  std::for_each(people.cbegin(),
+  // Print out the names of each teacher in the department
+  std::for_each(people.cbegin(), // For each person in the university
                 people.cend(),
                 [&] (std::pair<int, Person*> p) {
-                  auto t = dynamic_cast<Teacher*>(p.second);
+                  auto t = dynamic_cast<Teacher*>(p.second); // Are they a teacher?
                   if ((t!=nullptr)) {
-                    if (t->getDepartmentId()==dep.getDepartmentId())
+                    if (t->getDepartmentId()==dep.getDepartmentId()) // Are they in the department?
                       out << "\t" << t->getName() << " (" << t->getID() << ")"
                           << std::endl;
                   }
                 });
   out << "Students:" << std::endl;
-  std::for_each(people.cbegin(),
+  // Print out the names of each student in the department
+  std::for_each(people.cbegin(), // For each person in the university
                 people.cend(),
                 [&] (std::pair<int, Person*> p) {
-                  auto t = dynamic_cast<Student*>(p.second);
+                  auto t = dynamic_cast<Student*>(p.second); // Are they a student?
                   if ((t!=nullptr)) {
-                    if (t->getDepartmentId()==dep.getDepartmentId())
+                    if (t->getDepartmentId()==dep.getDepartmentId()) // Are they in the department?
                       out << "\t" << t->getName() << " (" << t->getID() << ")"
                           << std::endl;
                   }
                 });
   out << "Courses:" << std::endl;
-  std::for_each(dataObject.getCourses().cbegin(),
+  // Print out the names of each course in the department
+  std::for_each(dataObject.getCourses().cbegin(), // For each course in the university
                 dataObject.getCourses().cend(),
                 [&] (std::pair<int, Course*> c) {
-                  if (c.second->getDepartmentId()==dep.getDepartmentId())
+                  if (c.second->getDepartmentId()==dep.getDepartmentId()) // Is it in the department?
                     out << "\t" << c.second->getName() << " (" << c.second->getCourseId() << ")"
                         << std::endl;
                 });
@@ -147,7 +163,7 @@ void displayDepartment (std::ostream& out, const DataObject& dataObject, const D
 int main()
 {
   DataObject dataObject;
-  {
+  { // Read Departments.txt, parse it into Department objects, and store them in dataObject
     std::ifstream departments("Departments.txt");
     while (!(departments.eof())) {
       Department *d = new Department();
@@ -157,7 +173,7 @@ int main()
     }
   }
   std::cout << "Loaded Departments" << std::endl << std::flush;
-  {
+  { // Read Students.txt, parse it into Student objects, and store them in dataObject
     std::ifstream students("Students.txt");
     while (!(students.eof())) {
       Student *s = new Student();
@@ -168,7 +184,7 @@ int main()
     }
   }
   std::cout << "Loaded Students" << std::endl << std::flush;
-  {
+  { // Read Courses.txt, parse it into Course objects, and store them in dataObject
     std::ifstream courses("Courses.txt");
     while (!(courses.eof())) {
       Course *c = new Course();
@@ -179,7 +195,7 @@ int main()
     }
   }
   std::cout << "Loaded Courses" << std::endl << std::flush;
-  {
+  { // Read Teachers.txt, parse it into Teacher objects, and store them in dataObject
     std::ifstream teachers("Teachers.txt");
     while (!(teachers.eof())) {
       Teacher *t = new Teacher();
@@ -191,16 +207,20 @@ int main()
   }
   std::cout << "Loaded Teachers" << std::endl << std::flush;
 
+  // Test person report generator (displayPersonDispatch)
   std::cout << "Enter a person ID: ";
   int personId;
   std::cin >> personId;
   displayPersonDispatch(std::cout, dataObject,
                         *dataObject.getPeople().at(personId));
+
+  // Test course report generator (displayCourse)
   std::cout << "Enter a course ID: ";
   int courseId;
   std::cin >> courseId;
   displayCourse(std::cout, dataObject, *dataObject.getCourses().at(courseId));
 
+  // Test department report generator (displayDepartment)
   std::cout << "Enter a department ID: ";
   int departmentId;
   std::cin >> departmentId;
