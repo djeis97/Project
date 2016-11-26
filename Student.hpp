@@ -18,7 +18,6 @@ public:
            std::set<int> myCoursesAssisting);
 
   std::string getLevel () const;
-  void setLevel (std::string newLevel);
 
   std::string getRole () const;
 

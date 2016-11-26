@@ -21,9 +21,6 @@ Student::Student (std::string myName, int id, Date bDate,
 std::string Student::getLevel () const {
   return level;
 }
-void Student::setLevel (std::string newLevel) {
-  level = newLevel;
-}
 
 std::string Student::getRole () const {
   return role;
