@@ -1,5 +1,5 @@
 #Comment
-CC=g++
+CC=c++
 CFLAGS=-Wall -std=c++11
 
 all: Project
