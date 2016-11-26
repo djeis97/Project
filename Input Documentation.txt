@@ -1,6 +1,6 @@
 Records in each file are structured as follows:
 
-Each record is separated by a blank line.
+Each record is separated from the previous by a blank line.
 
 Students.txt:
 <Person ID : int>
@@ -10,7 +10,7 @@ Students.txt:
 <Department ID : int>
 <Degree level : string>
 <Number of enrolled courses> <ID of enrolled Course> <ID of second enrolled course> <etc...>
-<Job (TA, RA, or None by convention)>
+<Job (TA, RA, or None by convention) : string>
 <Number of courses assisting> <ID of course assisting> <ID of second course assisting> <etc...>
 
 Teachers.txt:
