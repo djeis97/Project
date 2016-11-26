@@ -53,21 +53,30 @@ std::ostream& operator<< (std::ostream& out, const Student& me) {
 std::istream& operator>> (std::istream& in, Student& me) {
   in >> static_cast<Person&>(me); // Parse Person data
   in.ignore(500, '\n'); // Skip newline after int
+
   std::getline(in, me.level); // Read degree level
-  int courseNum = 0; // Read courses taking
-  in >> courseNum;
-  for(int i=0; i<courseNum; i++) {
-    int courseId;
-    in >> courseId;
-    me.courses.insert(courseId);
+
+  { // Read courses taking
+    int courseNum;
+    in >> courseNum;
+    for(int i=0; i<courseNum; i++) {
+      int courseId;
+      in >> courseId;
+      me.courses.insert(courseId);
+    }
   }
   in.ignore(500, '\n'); // Skip newline after int
+
   std::getline(in, me.role); // Read role
-  in >> courseNum; // Read courses assisting
-  for (int i=0; i < courseNum; i++) {
-    int courseId;
-    in >> courseId;
-    me.coursesAssisting.insert(courseId);
+
+  { // Read courses assisting
+    int courseNum;
+    in >> courseNum;
+    for (int i=0; i < courseNum; i++) {
+      int courseId;
+      in >> courseId;
+      me.coursesAssisting.insert(courseId);
+    }
   }
   return in;
 }

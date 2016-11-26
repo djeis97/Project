@@ -39,13 +39,17 @@ std::ostream& operator<< (std::ostream& out, const Teacher& me) {
 std::istream& operator>> (std::istream& in, Teacher& me) {
   in >> static_cast<Person&>(me); // Parse Person data
   in.ignore(500, '\n'); // Skip newline after int
+
   std::getline(in, me.title); // Read teacher title
-  int courseNum;
-  in >> courseNum; // Read courses teaching
-  for (int i=0; i < courseNum; i++){
-    int courseId;
-    in >> courseId;
-    me.coursesTeaching.insert(courseId);
+
+  { // Read courses teaching
+    int courseNum;
+    in >> courseNum;
+    for (int i=0; i < courseNum; i++){
+      int courseId;
+      in >> courseId;
+      me.coursesTeaching.insert(courseId);
+    }
   }
 
   return in;
