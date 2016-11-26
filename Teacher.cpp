@@ -18,9 +18,6 @@ Teacher::~Teacher () {}
 std::string Teacher::getTitle () const {
   return title;
 }
-void Teacher::setTitle (std::string newTitle) {
-  title = newTitle;
-}
 
 const std::set<int>& Teacher::getCoursesTeaching () const {
   return coursesTeaching;

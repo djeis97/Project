@@ -18,7 +18,6 @@ public:
   ~Teacher ();
 
   std::string getTitle () const;
-  void setTitle (std::string newTitle);
 
   const std::set<int>& getCoursesTeaching () const;
 
