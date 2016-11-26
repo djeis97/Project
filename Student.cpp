@@ -18,14 +18,15 @@ Student::Student (std::string myName, int id, Date bDate,
     courses(myCourses), level(myLevel), role(myRole),
     coursesAssisting(myCoursesAssisting) {}
 
+// Member getters
 std::string Student::getLevel () const {
   return level;
 }
-
 std::string Student::getRole () const {
   return role;
 }
 
+// Const reference getters for member collections.
 const std::set<int>& Student::getCourses () const {
   return courses;
 }
@@ -33,6 +34,7 @@ const std::set<int>& Student::getCoursesAssisting () const {
   return coursesAssisting;
 }
 
+// Debug printer for Students
 std::ostream& operator<< (std::ostream& out, const Student& me) {
   out << static_cast<const Person&>(me)
       << me.level << std::endl
@@ -47,20 +49,21 @@ std::ostream& operator<< (std::ostream& out, const Student& me) {
   return out << std::endl;
 }
 
+// Parser for student records
 std::istream& operator>> (std::istream& in, Student& me) {
-  in >> static_cast<Person&>(me);
-  in.ignore(500, '\n');
-  std::getline(in, me.level);
-  int courseNum = 0;
+  in >> static_cast<Person&>(me); // Parse Person data
+  in.ignore(500, '\n'); // Skip newline after int
+  std::getline(in, me.level); // Read degree level
+  int courseNum = 0; // Read courses taking
   in >> courseNum;
   for(int i=0; i<courseNum; i++) {
     int courseId;
     in >> courseId;
     me.courses.insert(courseId);
   }
-  in.ignore(500, '\n');
-  std::getline(in, me.role);
-  in >> courseNum;
+  in.ignore(500, '\n'); // Skip newline after int
+  std::getline(in, me.role); // Read role
+  in >> courseNum; // Read courses assisting
   for (int i=0; i < courseNum; i++) {
     int courseId;
     in >> courseId;
