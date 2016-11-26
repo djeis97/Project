@@ -191,7 +191,7 @@ int main()
   }
   std::cout << "Loaded Teachers" << std::endl << std::flush;
 
-  std::cout << "Enter a university ID: ";
+  std::cout << "Enter a person ID: ";
   int personId;
   std::cin >> personId;
   displayPersonDispatch(std::cout, dataObject,
