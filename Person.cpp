@@ -19,10 +19,6 @@ std::string Person::getName () const {
   return name;
 }
 
-void Person::setName (std::string newName) {
-  name = newName;
-}
-
 int Person::getID () const {
   return universityID;
 }
