@@ -11,13 +11,17 @@ public:
   Department (int myId, std::string myName);
   virtual ~Department ();
 
+  // Member Getters
   std::string getName () const;
   int getDepartmentId () const;
 
 private:
-  int departmentId;
-  std::string name;
+  int departmentId; // ID
+  std::string name; // Name of department
+
+  // Debug printer
   friend std::ostream& operator<< (std::ostream& out, const Department& me);
+  // Parser
   friend std::istream& operator>> (std::istream& out, Department& me);
 };
 
