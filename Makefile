@@ -12,11 +12,11 @@ Project: main.o Date.o DataObject.o Course.o Department.o Person.o Teacher.o Stu
 
 %.cpp: %.hpp
 
-DataObject.cpp: Person.hpp Department.hpp Course.hpp
-Person.cpp: Date.hpp
-Teacher.cpp: Person.hpp Date.hpp
-Student.cpp: Person.hpp Date.hpp
-main.cpp: DataObject.hpp Person.hpp Teacher.hpp Student.hpp Department.hpp Course.hpp
+DataObject.o: Person.hpp Department.hpp Course.hpp
+Person.o: Date.hpp
+Teacher.o: Person.hpp Date.hpp
+Student.o: Person.hpp Date.hpp
+main.o: DataObject.hpp Person.hpp Teacher.hpp Student.hpp Department.hpp Course.hpp
 
 
 
