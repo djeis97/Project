@@ -22,11 +22,6 @@ public:
 
   std::string getRole () const;
 
-  std::vector<int>::const_iterator coursesBegin () const;
-  std::vector<int>::const_iterator coursesEnd () const;
-  std::vector<int>::const_iterator coursesAssistingBegin () const;
-  std::vector<int>::const_iterator coursesAssistingEnd () const;
-
   const std::vector<int>& getCourses () const;
   const std::vector<int>& getCoursesAssisting () const;
 

@@ -29,22 +29,6 @@ std::string Student::getRole () const {
   return role;
 }
 
-std::vector<int>::const_iterator Student::coursesBegin () const {
-  return courses.cbegin();
-}
-
-std::vector<int>::const_iterator Student::coursesEnd () const {
-  return courses.cend();
-}
-
-std::vector<int>::const_iterator Student::coursesAssistingBegin () const {
-  return coursesAssisting.cbegin();
-}
-
-std::vector<int>::const_iterator Student::coursesAssistingEnd () const {
-  return coursesAssisting.cend();
-}
-
 const std::vector<int>& Student::getCourses () const {
   return courses;
 }
