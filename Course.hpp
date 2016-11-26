@@ -19,17 +19,17 @@ public:
   const std::string& getLevel () const;
   int getDepartmentId () const;
 
-
+  // Const getters for member collections
   const std::map<int, int>& getGrades () const;
 
 private:
   int courseId;
   std::string name;
-  std::string level;
+  std::string level; // Undergraduate/Graduate
   int departmentId;
   std::map<int, int> grades; // Student IDs to Grades
 
-  friend std::ostream& operator<< (std::ostream& out, const Course& me);
+  // Parser
   friend std::istream& operator>> (std::istream& out, Course& me);
 };
 
