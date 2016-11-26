@@ -10,50 +10,102 @@
 #include <fstream>
 #include <algorithm>
 
-void displayPerson (std::ostream& out, DataObject const * dataObject, const Person& person) {
+void displayPerson (std::ostream& out, const DataObject& dataObject, const Person& person) {
   out
     << "Name: " << person.getName() << std::endl
     << "University ID: " << person.getID() << std::endl
     << "Birth Date: " << person.getBirthDate() << std::endl
     << "Gender: " << person.getGender() << std::endl
-    << "Department: " << dataObject->getDepartmentById(person.getDepartmentId())->getName()
+    << "Department: " << dataObject.getDepartments().at(person.getDepartmentId())->getName()
     << std::endl;
 }
 
-void displayStudent (std::ostream& out, DataObject const * dataObject, const Student& student)
+void displayStudent (std::ostream& out, const DataObject& dataObject, const Student& student)
 {
   displayPerson(out, dataObject, student);
   out << "Degree level: " << student.getLevel() << std::endl;
 
   out << "Courses:" << std::endl;
-  std::for_each(student.coursesBegin(),
-                student.coursesEnd(),
+  std::for_each(student.getCourses().cbegin(),
+                student.getCourses().cend(),
                 [&] (int courseId) {
-                  out << dataObject->getCourseById(courseId)->getName() << std::endl;}
+                  out << "\t" << dataObject.getCourses().at(courseId)->getName() << std::endl;}
                 );
-  out << std::endl;
   out << "Job: " << student.getRole() << std::endl;
-  if (student.coursesAssistingBegin() != student.coursesAssistingEnd()) {
+  auto coursesAssisting = student.getCoursesAssisting();
+  if (coursesAssisting.cbegin() != coursesAssisting.cend()) {
     out << "Assisting Courses:" << std::endl;
-    std::for_each(student.coursesAssistingBegin(),
-                  student.coursesAssistingEnd(),
+    std::for_each(coursesAssisting.cbegin(),
+                  coursesAssisting.cend(),
                   [&] (int courseId) {
-                    out << dataObject->getCourseById(courseId)->getName() << std::endl;}
+                    out << "\t" << dataObject.getCourses().at(courseId)->getName() << std::endl;}
                   );
     out << std::endl;
   }
 }
 
-void displayTeacher (std::ostream& out, DataObject* dataObject, const Teacher& teacher) {
+void displayTeacher (std::ostream& out, const DataObject& dataObject, const Teacher& teacher) {
   displayPerson(out, dataObject, teacher);
   out << "Title: " << teacher.getTitle() << std::endl;
   out << "Teaching Courses: " << std::endl;
-  std::for_each(teacher.coursesTeachingBegin(),
-                teacher.coursesTeachingEnd(),
+  std::for_each(teacher.getCoursesTeaching().cbegin(),
+                teacher.getCoursesTeaching().cend(),
                 [&] (int courseId) {
-                  out << dataObject->getCourseById(courseId)->getName() << std::endl;}
+                  out << "\t" << dataObject.getCourses().at(courseId)->getName() << std::endl;}
                 );
   out << std::endl;
+}
+
+void displayPersonDispatch (std::ostream& out, const DataObject& dataObject, const Person& person) {
+  Student const* s = dynamic_cast<Student const *>(&person);
+  if (s!=nullptr) {
+    displayStudent(out, dataObject, *s);
+  }
+  Teacher const* t = dynamic_cast<Teacher const *>(&person);
+  if (t!=nullptr) {
+    displayTeacher(out, dataObject, *t);
+  }
+}
+
+void displayCourse (std::ostream& out, const DataObject& dataObject, const Course& course) {
+  out << course.getName() << std::endl
+      << "Department: " << dataObject.getDepartments().at(course.getDepartmentId())->getName()
+      << std::endl
+      << "Level: " << course.getLevel() << std::endl
+      << "Teachers:" << std::endl;
+  auto people = dataObject.getPeople();
+  std::for_each(people.cbegin(),
+                people.cend(),
+                [&] (std::pair<int, Person*> p) {
+                  auto t = dynamic_cast<Teacher*>(p.second);
+                  if ((t!=nullptr)) {
+                    auto coursesTeaching = t->getCoursesTeaching();
+                    if (coursesTeaching.find(course.getCourseId())!=coursesTeaching.cend())
+                      out << "\t" << t->getName() << " (" << t->getID() << ")"
+                          << std::endl;
+                  }
+                });
+  out << "Teaching Assistents:" << std::endl;
+  std::for_each(people.cbegin(),
+                people.cend(),
+                [&] (std::pair<int, Person*> p) {
+                  auto s = dynamic_cast<Student*>(p.second);
+                  if ((s!=nullptr)) {
+                    auto coursesTeaching = s->getCoursesAssisting();
+                    if (coursesTeaching.find(course.getCourseId())!=coursesTeaching.cend())
+                      out << "\t" << s->getName() << " (" << s->getID() << ")"
+                          << std::endl;
+                  }
+                });
+  out << "Student grades: " << std::endl;
+  std::for_each(course.getGrades().cbegin(),
+                course.getGrades().cend(),
+                [&] (std::pair<int, int> p) {
+                  auto s = dynamic_cast<Student*>(dataObject.getPeople().at(p.first));
+                  out << "\t" << s->getName() << " (" << s->getID() << ")"
+                      << ": " << p.second << "%" << std::endl;
+                });
+
 }
 
 int main()
@@ -102,8 +154,9 @@ int main()
     }
   }
   std::cout << "Loaded Teachers" << std::endl << std::flush;
-  displayTeacher(std::cout, &dataObject,
-                 *dynamic_cast<const Teacher*>(dataObject.getPersonById(100)));
+  displayPersonDispatch(std::cout, dataObject,
+                        *dataObject.getPeople().at(100));
+  displayCourse(std::cout, dataObject, *dataObject.getCourses().at(1));
 
   return 0;
 }
