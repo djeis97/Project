@@ -13,7 +13,7 @@ public:
          std::string myGender, int departmentId);
 
   //! Destructor
-  virtual ~Person() noexcept;
+  virtual ~Person();
 
   // Getters for person members
   std::string getName () const;
