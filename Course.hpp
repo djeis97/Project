@@ -13,11 +13,11 @@ public:
           int myDepartmentId, std::map<int, int> myGrades);
   virtual ~Course ();
 
+  // Member getters
   int getCourseId () const;
   const std::string& getName () const;
   const std::string& getLevel () const;
   int getDepartmentId () const;
-  int getStudentGrade (int studentId);
 
 
   const std::map<int, int>& getGrades () const;

@@ -26,10 +26,6 @@ const std::string& Course::getLevel () const {
   return level;
 }
 
-int Course::getStudentGrade (int studentId) {
-  return grades.at(studentId);
-}
-
 int Course::getDepartmentId () const {
   return departmentId;
 }
